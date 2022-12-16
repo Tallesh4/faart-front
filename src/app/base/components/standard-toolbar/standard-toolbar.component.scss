@@ -1,0 +1,201 @@
+.container-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .container-search{
+        width: 100%;
+
+        .marca {
+            display: flex;
+            flex-direction: column;
+            width: 97%;
+    
+            .field {
+                display: flex;
+                font-family: "Roboto";
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16px;
+                background: var(--white);
+                border: 1px solid #e5e5e5;
+                box-sizing: border-box;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                border-radius: 6px;
+                margin: 20px 0 20px 0;
+                padding: 7px 0 7px 10px;
+                outline: none;
+    
+                input {
+                    width: 97%;
+                    border: none;
+                    outline: none;
+                }
+    
+                img {
+                    width: 16px;
+                }
+            }
+        }
+    }
+
+    .options{
+        width: 10%;
+
+        .marca {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+    
+            .field {
+                display: flex;
+                font-family: "Roboto";
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16px;
+                background: var(--white);
+                border: 1px solid #e5e5e5;
+                box-sizing: border-box;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                border-radius: 6px;
+                margin: 20px 0 20px 0;
+                outline: none;
+    
+                select {
+                    width: 97%;
+                    border: none;
+                    outline: none;
+                }
+            }
+        }
+    }
+
+}
+
+.buttons {
+    display: flex;
+    margin: 20px 0 20px 0;
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        color: var(--white);
+        height: 39px;
+        margin: 20px 0 0 0;
+
+        &:nth-child(2) {
+            color: black;
+        }
+
+        &:nth-child(3) {
+            width: 70px;
+        }
+
+        span {
+            margin-right: 4px;
+        }
+
+        &.material-icons.whitecolor {
+            color: var(--white);
+        }
+    }
+
+    button:disabled {
+        background-color: gray;
+        border: none;
+    }
+
+
+}
+
+label {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    color: var(--dark);
+}
+
+.btn-warning {
+    color: black;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .container-bar {
+        display: block;
+    
+        .container-search{
+            width: 100%;
+    
+            .marca {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+        
+                .field {
+                    display: flex;
+                    font-family: "Roboto";
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 16px;
+                    background: var(--white);
+                    border: 1px solid #e5e5e5;
+                    box-sizing: border-box;
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    border-radius: 6px;
+                    margin: 20px 0 20px 0;
+                    padding: 7px 0 7px 10px;
+                    outline: none;
+        
+                    input {
+                        width: 97%;
+                        border: none;
+                        outline: none;
+                    }
+        
+                    img {
+                        width: 16px;
+                    }
+                }
+            }
+        }
+    
+        .options{
+            width: 100%;
+    
+            .marca {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+        
+                .field {
+                    display: flex;
+                    font-family: "Roboto";
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 16px;
+                    background: var(--white);
+                    border: 1px solid #e5e5e5;
+                    box-sizing: border-box;
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    border-radius: 6px;
+                    margin: 20px 0 20px 0;
+                    outline: none;
+        
+                    select {
+                        width: 97%;
+                        border: none;
+                        outline: none;
+                    }
+                }
+            }
+        }
+    
+    }
+  }

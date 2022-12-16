@@ -1,0 +1,13 @@
+<div class="qtd">
+    <label for="">Quantidade</label>
+    <div class="field-select">
+        <select class="field" (change)="changeAmount($event.target)">
+            <option  
+                *ngFor="let item of quantityItems" 
+                [value]="item"
+            >
+                {{ item }}
+            </option>
+        </select>
+    </div>
+</div>

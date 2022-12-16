@@ -1,0 +1,38 @@
+.image-container {
+    width: 250px;
+    margin: 16px;
+    flex: 0 0 auto;
+    background-color: white;
+    padding: 8px;
+    overflow: hidden;
+    border: 1px solid var(--interface-color);
+    border-radius: 8px;
+    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+
+    img {
+        width: 100%;
+        flex: 1;
+        object-fit: cover;
+    }
+}
+
+.container-flex-horizontal {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    overflow-x: auto;
+    background-color: var(--interface);
+
+    &.graphs {
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.chart-item {
+    width: 350px;
+    height: 350px;
+}

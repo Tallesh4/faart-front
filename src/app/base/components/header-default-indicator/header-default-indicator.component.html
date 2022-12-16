@@ -1,0 +1,26 @@
+<div class="indicators-container">
+    <div class="blue-indicator">
+        <div class="header">
+            <p>{{ title }}</p>
+        </div>
+
+        <div class="item">
+            <div class="body" *ngIf="!loadingHeader && !listItemsWithTitle.length">
+                <p class="indicator-value" id="actived_promoters_value">
+                    {{ value }}
+                </p>
+            </div>
+
+            <div class="body-items" *ngIf="!loadingHeader && listItemsWithTitle.length">
+                <div class="items" *ngFor="let item of listItemsWithTitle">
+                    <p>{{ item.key }}</p>
+                    <p id="value">{{ item.value }}</p>
+                </div>
+            </div>
+
+            <div class="loading">
+                <loading-circle [loading]="loadingHeader"></loading-circle>
+            </div>
+        </div>
+    </div>
+</div>

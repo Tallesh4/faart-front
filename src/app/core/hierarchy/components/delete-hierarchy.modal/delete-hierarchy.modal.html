@@ -1,0 +1,20 @@
+<ng-template let-modal #content>
+	<div class="modal-header">
+		<h3 class="modal-title">Excluindo Hierarquia</h3>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.close()"></button>
+	</div>
+	<div class="modal-body p-0">
+		<table class="table mb-0" *ngIf="hierarchy">
+			<tbody>
+				<tr *ngFor="let header of headers">
+					<td class="text-end font-weight-bold">{{header.value}}</td>
+					<td>{{hierarchy[header.key]}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-danger-outline" type="button" (click)="modal.close()">Cancelar</button>
+		<button class="btn btn-danger" type="submit" (click)="confirm()">Excluir</button>
+	</div>
+</ng-template>

@@ -1,0 +1,194 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{ titleModal }}</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="setCloseModal(false)"></button>
+</div>
+
+<div class="modal-body">
+    <div *ngIf="listErrors.length">
+
+        <div *ngFor="let error of listErrors" class="alert alert-danger" role="alert">
+            * {{ error }}
+        </div>
+    </div>
+
+    <form [formGroup]="RegistrationFormForm">
+        <div>
+            <label>Nome entidade:</label>
+            <input disabled formControlName="entityName" type="text" id="entityName" name="entityName" placeholder="nome entidade" />
+        </div>
+        <div>
+            <label>Nome fantasia:</label>
+            <input disabled formControlName="fantasyName" type="text" id="fantasyName" name="fantasyName" placeholder="nome fantasia" />
+        </div>
+        <div>
+            <label>Forma Jurídica (Associação e/ou Cooperativa, ou coletivo):</label>
+            <input disabled formControlName="legalForm" type="text" id="legalForm" name="legalForm" placeholder="forma juridica" />
+        </div>
+
+        <div class="container-address">
+            <div class="item">
+                <label>CEP</label>
+
+                <div style="margin-top: 4px;" class="input-group mb-3">
+                    <input disabled style="margin: 0px;" type="text" class="form-control" placeholder="Digite o CEP" formControlName="zipCodeAssociation" />
+                </div>
+            </div>
+
+            <div class="item">
+                <label>Endereço</label>
+                <input disabled class="form-control" type="text" placeholder="Digite o endereço" formControlName="streetAssociation" />
+            </div>
+
+            <div class="item">
+                <label>Cidade</label>
+                <input disabled class="form-control" type="text" placeholder="Digite o nome da cidade" formControlName="cityAssociation" />
+
+            </div>
+        </div>
+
+        <div class="container-address">
+            <div class="item">
+                <label>Número</label>
+                <input disabled class="form-control" type="text" placeholder="Digite o número" formControlName="numberAssociation" />
+            </div>
+
+            <div class="item">
+                <label>UF</label>
+                <input disabled class="form-control" type="text" placeholder="Digite a UF" formControlName="stateAssociation" />
+            </div>
+
+            <div class="item">
+                <label>Complemento</label>
+                <input disabled class="form-control" type="text" formControlName="complementAssociation" />
+            </div>
+        </div>
+
+        <div>
+            <label>CNPJ</label>
+            <input disabled formControlName="cnpjAssociation" type="text" placeholder="xx.xxx.xxx/0001-xx" />
+        </div>
+
+        <div>
+            <label>Telefone</label>
+            <input disabled formControlName="phoneAssociation" type="tel" id="telefone-da-entidade" name="telefone-da-entidade" placeholder="(xx) xxxxx-xxxx" />
+        </div>
+        <div>
+            <label>E-mail da entidade</label>
+            <input disabled formControlName="emailAssociation" type="email" id="email" name="email" placeholder="e-mail" />
+        </div>
+
+        <br/>
+        <br/>
+
+        <h2>Dados do Responsável</h2>
+
+        <br/>
+        <br/>
+
+        <div>
+            <label>Nome do Responsável</label>
+            <input disabled formControlName="name" type="text" id="name" name="name" placeholder="nome do responsável" />
+        </div>
+
+        <div>
+            <label>Cargo na Entidade</label>
+            <input disabled formControlName="job" type="text" id="job" name="job" placeholder="nome na entidade" />
+        </div>
+
+        <div class="container-address">
+            <div class="item">
+                <label>CEP</label>
+
+                <div style="margin-top: 4px;" class="input-group mb-3">
+                    <input disabled style="margin: 0px;" type="text" class="form-control" placeholder="Digite o CEP" formControlName="zipCodeResponsible" />
+                </div>
+            </div>
+
+            <div class="item">
+                <label>Endereço</label>
+                <input disabled class="form-control" type="text" placeholder="Digite o endereço" formControlName="streetResponsible" />
+            </div>
+
+            <div class="item">
+                <label>Cidade</label>
+                <input disabled class="form-control" type="text" placeholder="Digite o nome da cidade" formControlName="cityResponsible" />
+
+            </div>
+        </div>
+
+        <div class="container-address">
+            <div class="item">
+                <label>Número</label>
+                <input disabled class="form-control" type="text" placeholder="Digite o número" formControlName="numberResponsible" />
+            </div>
+
+            <div class="item">
+                <label>UF</label>
+                <input disabled class="form-control" type="text" placeholder="Digite a UF" formControlName="stateResponsible" />
+            </div>
+
+            <div class="item">
+                <label>Complemento</label>
+                <input disabled class="form-control" type="text" formControlName="complementResponsible" />
+            </div>
+        </div>
+
+        <div>
+            <label>Telefone</label>
+            <input disabled formControlName="phone" type="text" id="phone" name="phone" placeholder="(xx) xxxxx-xxxx" />
+        </div>
+
+        <div>
+            <label>CPF</label>
+            <input disabled formControlName="cpf" type="text" id="cpf" name="cpf" placeholder="000.000.000-00" />
+        </div>
+
+        <div>
+            <label>Email</label>
+            <input disabled formControlName="email" type="text" id="email" name="email" placeholder="joao@email.com" />
+        </div>
+
+        <div>
+            <label>RG</label>
+            <input disabled formControlName="rg" type="text" id="rg" name="rg" placeholder="0.000.000" />
+        </div>
+
+        <div>
+            <label>Órgão Expedidor</label>
+            <input disabled formControlName="bodyExpeditor" type="text" id="bodyExpeditor" name="bodyExpeditor" placeholder="expedidor da Carteira de Identidade" />
+        </div>
+
+        <div>
+            <label>Estado civil</label>
+            <select disabled formControlName="maritalStatus" name="maritalStatus">
+                      <option value="Solteiro">Solteiro (a)</option>
+                      <option value="Casado">Casado (a)</option>
+                      <option value="Divorciado">Divorciado (a)</option>
+                      <option value="Viúvo">Viúvo (a)</option>
+                  </select>
+        </div>
+        <div>
+            <label>Nacionalidade</label>
+            <input disabled formControlName="nationality" type="text" id="nationality" name="nationality" placeholder="brasileiro (a)" />
+        </div>
+        <div>
+            <label>Naturalidade</label>
+            <input disabled formControlName="naturalness" type="text" id="naturalness" name="naturalness" placeholder="local de origem" />
+        </div>
+        <div>
+            <label>Data de Filiação:</label>
+            <input disabled formControlName="dateFiliation" type="date" id="dateFiliation" name="dateFiliation" placeholder="dd/mm/aaaa" />
+        </div>
+        <div>
+            <label>Nº Carteira de Artesão SICAB:</label>
+            <input disabled formControlName="nArtisanWallet" type="text" id="nArtisanWallet" name="nArtisanWallet" placeholder="" />
+        </div>
+        <div>
+            <label>Data de vencimento carteira:</label>
+            <input disabled formControlName="dueDateArtisanWallet" type="date" id="dueDateArtisanWallet" name="dueDateArtisanWallet" placeholder="dd/mm/aaaa" />
+        </div>
+    </form>
+</div>
+
+<div class="modal-footer">
+</div>

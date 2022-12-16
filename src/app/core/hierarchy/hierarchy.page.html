@@ -1,0 +1,110 @@
+<div class="itemContainer">
+	<fast-navigation
+	[fastNavigationData]="fastNavigationData"
+	></fast-navigation>
+	<div>
+	<h2>Hierarquias</h2>
+	<div class="filtros">
+		<div>
+			<server-search-bar value="{{search}}" (changeSearch)="changeSearch($event)"></server-search-bar>
+		</div>
+
+		<div class="qtd">
+			<label for="">Quantidade</label>
+			<div class="field-select">
+				<select class="campos" (change)="changePerPage($event.target)" value="{{perPage}}">
+					<option value="10">10</option>
+					<option value="25">25</option>
+					<option value="50">50</option>
+					<option value="100">100</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="buttons">
+			<button (click)="hierarchyModal.open()" *ngIf="showCreateHierarchy">
+				<span class="material-icons md-48 whitecolor">add_circle</span>
+				Novo
+			</button>
+
+			<!-- <button>
+				<span class="material-icons md-48 whitecolor">delete</span>
+				Excluir
+			</button> -->
+		</div>
+	</div>
+
+	<loading-table-brands
+		[loadingTableItems]="loading"
+	></loading-table-brands>
+
+
+	<div class="tableData">
+		<table>
+			<thead>
+			<tr>
+				<!-- <th><input type="checkbox"/></th> -->
+				<th *ngFor="let header of headers" (click)="changeSort(header)">{{header.value}}
+				<img *ngIf="header.key == sortBy" src="../../../assets/icons/arrow-table.svg" alt="ícone de seta para ordenar tabela"
+					[class.sortIcon]="sort == 'asc' ? true : false" />
+				</th>
+				<th class="text-end">Ações</th>
+			</tr>
+			</thead>
+			<tbody *ngIf="loading">
+			<tr *ngFor="let a of getLoadLines()">
+				<!-- <td><input type="checkbox"/></td> -->
+				<td><ngx-skeleton-loader appearance="line" style="padding: 0"></ngx-skeleton-loader></td>
+				<td><ngx-skeleton-loader appearance="line" style="padding: 0"></ngx-skeleton-loader></td>
+				<td><ngx-skeleton-loader appearance="line" style="padding: 0"></ngx-skeleton-loader></td>
+				<td><ngx-skeleton-loader appearance="line" style="padding: 0"></ngx-skeleton-loader></td>
+				<td><ngx-skeleton-loader appearance="line" style="padding: 0"></ngx-skeleton-loader></td>
+				<td><ngx-skeleton-loader appearance="line" style="padding: 0"></ngx-skeleton-loader></td>
+			</tr>
+			</tbody>
+			<tbody *ngIf="!loading">
+			<tr *ngFor="let item of items | paginate: { itemsPerPage: perPage, currentPage: page, totalItems: total }">
+				<!-- <td><input type="checkbox"/></td> -->
+				<td>{{ item.tag }}</td>
+				<td>{{ item.name }}</td>
+				<td>{{ item.level }}</td>
+				<td>{{ item.createdAt?.toLocaleString() }}</td>
+				<td>{{ item.updatedAt?.toLocaleString() }}</td>
+				<td class="text-end pe-3">
+					<div class="btn-group" role="group" aria-label="Ações">
+						<button class="btn btn-primary material-icons" type="button" (click)="hierarchyModal.open(item)" *ngIf="showUpdateHierarchy">edit</button>
+						<button class="btn btn-danger material-icons" type="button" (click)="deleteHierarchyModal.open(item)" *ngIf="showDeleteHierarchy">delete</button>
+					</div>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+		<div *ngIf="!loading && !items.length">
+			<h2 style="text-align: center;">Nenhum dado encontrado</h2>
+		</div>
+		<div class="finishTable">
+			<h3>Total: {{ total }}</h3>
+			<div class="paginator">
+				<div class="paginator" id="paginator">
+					<pagination-controls
+						(pageChange) = "changePage($event)"
+						nextLabel="Próximo"
+						previousLabel="Anterior"
+					>
+					</pagination-controls>
+				</div>
+			</div>
+
+			<!-- <button-excel
+				[modelExport]="exportData"
+				[tableData]="listItems"
+				reportName="Marcas"
+			></button-excel> -->
+		</div>
+	</div>
+
+
+	</div>
+</div>
+<hierarchy-modal #hierarchyModal (onClose)="getHierarchies()"></hierarchy-modal>
+<delete-hierarchy-modal #deleteHierarchyModal (onClose)="getHierarchies()"></delete-hierarchy-modal>

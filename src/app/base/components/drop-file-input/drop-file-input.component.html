@@ -1,0 +1,8 @@
+<div class="drop-zone">
+    <label [for]="id" class="mb-0" (drop)="dropFile($event)" (dragover)="dragover($event)" (dragend)="dragend($event)" (dragleave)="dragend($event)">
+        <span class="h1 material-icons">{{ file ? 'download_done' : icon }}</span>
+        <br> {{ file ? file.name : (hover ? 'Solte aqui' : 'Arraste o arquivo ou clique aqui') }}
+    </label>
+    <br>
+    <input [id]="id" type="file" (change)="changeFile($event)" [accept]="accept" multiple="{{multiple}}">
+</div>

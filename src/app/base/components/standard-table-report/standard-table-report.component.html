@@ -1,0 +1,61 @@
+<div class="container-table">
+    <div class="table-primary">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th *ngFor="let item of headerPrimary" scope="col">
+                        {{ item.value }}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let headerItems of tableDataPrimaryItems | paginate: { itemsPerPage: itemsPerPage, currentPage: page }; let i = index">
+                    <td *ngFor="let header of headerItems">
+                        {{ header }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-secondary">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th *ngFor="let item of headerSecondary" scope="col">
+                        {{ item.value }}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let headerItems of tableDataSecondaryItems | paginate: { itemsPerPage: itemsPerPage, currentPage: page }; let i = index">
+                    <td *ngFor="let header of headerItems">
+                        {{ header }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="finishTable">
+    <h3>Total: {{ listItems.length }}</h3>
+   <div class="paginator">
+        <div class="paginator" id="paginator">
+            <pagination-controls
+                (pageChange)="page = $event"
+                nextLabel="Próximo"
+                previousLabel="Anterior"
+            >
+            </pagination-controls>
+        </div>
+    </div>
+
+    <button (click)="exportExcel()">
+        <img
+            src="../../assets/icons/downloadIcon.svg"
+            alt="Ícone de Download"
+        />
+        Exportar Excel
+    </button>
+</div>

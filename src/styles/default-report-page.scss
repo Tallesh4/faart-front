@@ -1,0 +1,118 @@
+.page-container{
+    padding: 0px 45px 45px 45px;
+
+    .container-header{
+        display: flex;
+        justify-content: start;
+        flex-wrap: wrap;
+    }
+}
+
+.container-table{
+    margin-top: 25px;
+    display: flex;
+    font-family: Roboto;
+    font-style: normal;
+
+    .table-primary{
+        table {
+            thead{
+                border: none;
+                tr{
+                    th{
+                        min-width: 230px;
+                        border: none;
+                        text-align: center;
+                        font-size: 18px;
+                    }
+                }
+            }
+
+            tbody{
+                border: none;
+                tr{
+                    td{
+                        padding-top: 20px;
+                        padding-bottom: 25px;
+                        border: none;
+                        text-align: center;
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+
+    .table-secondary{
+        overflow: auto;
+        border: none;
+
+        table{
+            thead{
+                border: none;
+                tr{
+                    th{
+                        min-width: 250px;
+                        border: none;
+                        text-align: center;
+                        font-size: 18px;
+                    }
+                }
+            }
+
+            tbody{
+                border: none;
+                tr{
+                    td{
+                        min-width: 120px;
+                        padding-top: 20px;
+                        padding-bottom: 25px;
+                        border: none;
+                        text-align: center;
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.finishTable {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+
+    h3 {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 27px;
+        color: #50555a;
+    }
+}
+
+.loading-center{
+    text-align: center;
+}
+
+.table-empty{
+    text-align: center;
+    margin-top: 50px;
+
+    h2{
+        font-size: 30px;
+    }
+}
+
+.page-without-header{
+    padding: 15px;
+    margin-top: 30px;
+}
+
+#seeIcon{
+    text-align: center;
+    cursor: pointer;
+}

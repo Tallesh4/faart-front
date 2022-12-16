@@ -1,0 +1,13 @@
+<div class="notificationBox" *ngIf="notification">
+    <div *ngIf="notification">
+        <p id="titleperson">Olá, {{ completeName }} !</p>
+        <div class="content">
+            <button class="btnLogout" (click)="logout()">
+				<span class="material-icons md-24 darkcolor">
+					logout
+				</span>
+				<p>Sair</p>
+			</button>
+        </div>
+    </div>
+</div>

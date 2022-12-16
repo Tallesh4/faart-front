@@ -1,0 +1,20 @@
+.container-filters {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .filter {
+        width: 12vw;
+        margin-left: 20px;
+        label {
+            margin-top: 15px;
+            padding: 5px;
+        }
+    }
+    .filter:first-child {
+        margin-left: 0px !important;
+    }
+    button {
+        margin-top: 19px;
+        margin-left: 15px;
+    }
+}

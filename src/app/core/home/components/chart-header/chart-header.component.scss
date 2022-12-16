@@ -1,0 +1,40 @@
+.chart-header {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    width: 98%;
+    .billing-options {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin-right: 20px;
+        input {
+            margin-bottom: 15px;
+        }
+    }
+    .chart-options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .option-span-icon {
+            height: 5vh;
+            cursor: pointer;
+            span {
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+#titleChart {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    text-align: start;
+}
+
+@media screen and (max-width: 1000px) {
+    .chart-header {
+        display: block;
+    }
+}

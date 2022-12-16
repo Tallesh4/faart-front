@@ -1,0 +1,19 @@
+
+
+.item-content{
+    cursor: pointer;
+
+    .item-value{
+        margin: 0px;
+
+    }
+}
+
+.list-container {
+	z-index: 40;
+}
+
+.list-content{
+    overflow: auto;
+    max-height: 250px;
+}

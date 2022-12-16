@@ -1,0 +1,20 @@
+<div class="search-bar">
+	<div class="bar">
+		<label for="">Pesquisar</label>
+		<div class="field">
+			<input
+				type="text"
+				placeholder="{{placeholder}}"
+				class="campos"
+				[value]="value"
+				(keyup.enter)="inputSearchChanged($event)"
+				(input)="value == '' ? inputSearchChanged($event) : ''">
+
+			<img
+				src="../../../../assets/icons/search.svg"
+				alt="Barra de pesquisa"
+			/>
+		</div>
+
+	</div>
+</div>

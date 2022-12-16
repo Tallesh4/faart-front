@@ -1,0 +1,16 @@
+<div class="custom-select {{key}}">
+
+    <div class="select-container" (click)="toggleDropList()">
+        <p class="form-control current-item-value {{key}}">
+            {{!currentItemSelected ? 'Selecionar' : currentItemSelected[targetKey]}}
+        </p>
+        <span class="action-button right material-icons {{key}}">
+            expand_more
+        </span>
+    </div>
+
+    <app-list-with-search [key]="key" class="floating-list" [data]="data" [targetKey]="targetKey" (onClick)="onItemSelected($event)" (onClickOutSide)="closeList()" *ngIf="isListDropped">
+
+    </app-list-with-search>
+
+</div>

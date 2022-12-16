@@ -1,0 +1,11 @@
+<button class="btn" [ngClass]="{'btn-success': status, 'btn-danger': !status, 'disabled': loading}" (click)="onClick.emit(this)">
+    <div class="d-flex">
+        <span class="material-icons mr-2" *ngIf="!loading">
+            {{ status ? 'check_box' : 'check_box_outline_blank'}}
+        </span>
+        <div class="spinner-border spinner-border-sm mr-2 my-auto" role="status" *ngIf="loading">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        {{ loading ? 'Carregando' : (status ? 'Ativado' : 'Desativado') }}
+    </div>
+</button>

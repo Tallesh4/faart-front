@@ -1,0 +1,40 @@
+.cardInput{
+	margin-top: 5px;
+}
+.input-forms{
+	width: 100%;
+    border: none;
+    box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+    margin-top: 14px;
+    padding: 10px;
+    height: 34px;
+    border-radius: 5px;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+	outline: 0;
+}
+
+.col-m-12{
+	width: 100%;
+	margin-right: 1%;
+}
+.col-m-9{
+	width: 74%;
+	margin-right: 1%;
+}
+.col-m-6{
+	width: 49%;
+	margin-right: 1%;
+}
+.col-m-3{
+	width: 24%;
+	margin-right: 1%;
+}
+
+.linebox{
+	margin-top: 20px;
+	display: flex;
+}

@@ -1,0 +1,41 @@
+.custom-select {
+    position: relative;
+    height: 48px;
+    width: 100%;
+    min-width: 100px;
+
+    .select-container{
+        cursor: pointer;
+
+    }
+
+    .form-control{
+        padding-right: 38px;
+
+        &.current-item-value{
+            min-height: 38px;
+        }
+    }
+
+    .action-button {
+        width: 38px;
+        height: 38px;
+        position: absolute;
+        padding: 8px;
+        top: 0;
+        &.right {
+            right: 3px;
+        }
+        &.left {
+            left: 0;
+        }
+    }
+}
+
+.floating-list {
+    position: absolute;
+    top: 38px;
+    left: 0px;
+    width: 100%;
+   
+}

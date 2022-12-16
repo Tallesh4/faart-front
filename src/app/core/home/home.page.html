@@ -1,0 +1,36 @@
+<div class="home-screen" style="margin-top: -30px;">
+    <div>
+        <div class="title-container pt-2">
+            <h2 id="title">Dados Geral</h2>
+        </div>
+
+        <div class="header bg-gradient-info pb-8 pt-1 pt-md-8">
+            <div class="container-fluid">
+                <div class="header-body">
+                    <div class="row">
+                        <div class="col-lg-6 col-xl-3">
+                            <div class="card-stats mb-4 mb-xl-0 card card-default-shadow">
+                                <card-indicators [loading]="loadingDailyIndicators" title="Usuários" [value]="dailyIndicators.users" bg="#000" icon="person" descriptionTimeline="Hoje"></card-indicators>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xl-3">
+                            <div class="card-stats mb-4 mb-xl-0 card card-default-shadow">
+                                <card-indicators [loading]="loadingDailyIndicators" title="Fichas Novas" [value]="dailyIndicators.forms" bg="#000" icon="timeline" descriptionTimeline="Hoje"></card-indicators>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xl-3">
+                            <div class="card-stats mb-4 mb-xl-0 card card-default-shadow">
+                                <card-indicators [loading]="loadingMouthIndicators" title="Associações" [value]="mouthIndicators.association" bg="#000" icon="timeline" descriptionTimeline="Este mês"></card-indicators>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xl-3">
+                            <div class="card-stats mb-4 mb-xl-0 card card-default-shadow">
+                                <card-indicators [loading]="loadingMouthIndicators" title="Responsável" [value]="mouthIndicators.responsible" bg="#000" icon="timeline" descriptionTimeline="Este mês"></card-indicators>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

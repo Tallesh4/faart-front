@@ -1,0 +1,89 @@
+.register {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #ebebeb;
+}
+
+.register-container {
+    width: 70%;
+    background-color: #fff;
+    padding: 32px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+    align-items: stretch;
+    margin-top: 33px;
+    margin-bottom: 30px;
+}
+
+.register-title {
+    margin-bottom: 32px;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+}
+
+input,
+select {
+    height: 48px;
+    width: 100%;
+    border-radius: 3px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding-left: 8px;
+    outline: 0;
+}
+
+.container-address {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-family: roboto;
+    .item {
+        border-radius: 15%;
+        width: 33%;
+        label {
+            padding: 5px;
+            color: var(--dark);
+            font-weight: bold;
+        }
+        .input-group {
+            img {
+                position: absolute;
+                top: 10px;
+                right: 15px;
+            }
+        }
+    }
+    button {
+        height: 48px;
+        border-radius: 0px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+}
+
+.register-submit {
+    height: 48px;
+    margin-top: 15px;
+    width: 100%;
+    background: var(--primary-color);
+    background-size: 200%;
+    margin-bottom: 32px;
+    color: var(--white);
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+.container-errors {
+    margin-top: 15px;
+}

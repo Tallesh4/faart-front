@@ -1,0 +1,213 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{ titleModal }}</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="setCloseModal(false)"></button>
+</div>
+
+<div class="modal-body">
+    <div class="container" [formGroup]="ResponsibleForm">
+
+
+        <div class="container-items">
+            <div class="item">
+                <label>Nome Completo</label>
+                <input class="form-control" type="text" placeholder="Digite o nome completo" formControlName="name" required />
+
+                <div class="container-error" *ngIf="errors.name && errors.name.length">
+                    <span>{{ errors.name[0] }}</span>
+                </div>
+
+                <div class="container-error" *ngIf="onSubmit && !ResponsibleForm.value.name">
+                    <span>Nome Completo é obrigatória</span>
+                </div>
+            </div>
+
+            <div class="item">
+                <label>Cargo</label>
+                <input class="form-control" type="text" placeholder="Digite o cargo" formControlName="job" required />
+
+                <div class="container-error" *ngIf="errors.job && errors.job.length">
+                    <span>{{ errors.job[0] }}</span>
+                </div>
+
+                <div class="container-error" *ngIf="onSubmit && !ResponsibleForm.value.job">
+                    <span>Cargo é obrigatório</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-items">
+            <div class="item">
+                <label>CPF *</label>
+                <input class="form-control" type="text" placeholder="Digite o CPF" formControlName="cpf" mask="000.000.000-00" />
+
+                <div class="container-error" *ngIf="onSubmit && !ResponsibleForm.value.cpf">
+                    <span>CPF é obrigatório</span>
+                </div>
+
+                <div class="container-error" *ngIf="errors.cpf && errors.cpf.length">
+                    <span>{{ errors.cpf[0] }}</span>
+                </div>
+            </div>
+
+            <div class="item">
+                <label>Telefone</label>
+                <input class="form-control" type="text" placeholder="Digite o Telefone" formControlName="phone" mask="(00) 00000-0000" />
+            </div>
+        </div>
+
+        <div class="container-items">
+            <div class="item">
+                <label>Associação *</label>
+
+                <div class="input-group">
+                    <select formControlName="associationId" class="form-control" required>
+                      <option value="">Selecione uma associação</option>
+                      <option *ngFor="let item of associationList" [value]="item.id">
+                          {{ item.fantasyName }}
+                      </option>
+                  </select>
+
+                    <img src="../../../../../assets/icons/arrowDown.svg" alt="Seta pra baixo" />
+                </div>
+
+                <div class="container-error" *ngIf="onSubmit && !ResponsibleForm.value.associationId">
+                    <span>Associação é obrigatório</span>
+                </div>
+            </div>
+
+
+            <div class="item">
+                <label>E-mail</label>
+                <input class="form-control" type="email" placeholder="Digite o E-mail" formControlName="email" />
+            </div>
+
+        </div>
+
+        <div class="container-items">
+            <div class="item">
+                <label>RG</label>
+                <input class="form-control" type="text" placeholder="Digite a RG" formControlName="rg" />
+            </div>
+
+            <div class="item">
+                <label>Orgao Expeditor</label>
+                <input class="form-control" type="text" placeholder="Digite a RG" formControlName="bodyExpeditor" />
+            </div>
+        </div>
+
+        <div class="container-items">
+            <div class="item">
+                <label>Estado Civil</label>
+                <input class="form-control" type="text" placeholder="Digite o Estado Civil" formControlName="maritalStatus" />
+            </div>
+
+            <div class="item">
+                <label>Naturalidade</label>
+                <input class="form-control" type="text" placeholder="Digite o Naturalidade" formControlName="naturalness" />
+            </div>
+        </div>
+
+        <div class="container-items">
+            <div class="item">
+                <label>Nacionalidade</label>
+                <input class="form-control" type="text" placeholder="Digite o Nacionalidade" formControlName="nationality" />
+            </div>
+
+            <div class="item">
+                <label>Carteira De Artesao</label>
+                <input class="form-control" type="text" placeholder="Digite o numero da carteira De Artesao" formControlName="nArtisanWallet" />
+            </div>
+        </div>
+
+        <div class="container-items">
+            <div class="item">
+                <label>Vencimento Carteira</label>
+                <input class="form-control" type="date" formControlName="dueDateArtisanWallet" />
+            </div>
+
+            <div class="item">
+                <label>Date de Filiacao</label>
+                <input class="form-control" type="date" formControlName="dateFiliation" />
+            </div>
+        </div>
+
+        <div class="container-address">
+            <div class="item">
+                <label>CEP *</label>
+
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Digite o CEP" formControlName="zipCode" mask="00000-000" required />
+
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-primary" (click)="searchAddress()">
+                          Pesquisar
+                      </button>
+                    </div>
+                </div>
+
+                <div class="container-error" *ngIf="onSubmit && !ResponsibleForm.value.zipCode">
+                    <span>CEP é obrigatório</span>
+                </div>
+            </div>
+
+            <div class="item">
+                <label>Endereço *</label>
+                <input class="form-control" type="text" placeholder="Digite o endereço" formControlName="street" required />
+
+                <div class="container-error" *ngIf="onSubmit && !ResponsibleForm.value.street">
+                    <span>Endereço é obrigatório</span>
+                </div>
+            </div>
+
+            <div class="item">
+                <label>Cidade *</label>
+                <input class="form-control" type="text" placeholder="Digite o nome da cidade" formControlName="city" required />
+
+                <div class="container-error" *ngIf="onSubmit && !ResponsibleForm.value.city">
+                    <span>Cidade é obrigatória</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-address">
+            <div class="item">
+                <label>Número *</label>
+                <input class="form-control" type="text" placeholder="Digite o número" formControlName="number" required />
+
+                <div class="container-error" *ngIf="onSubmit && !ResponsibleForm.value.number">
+                    <span>Número é obrigatório</span>
+                </div>
+            </div>
+
+            <div class="item">
+                <label>UF *</label>
+                <input class="form-control" type="text" placeholder="Digite a UF" formControlName="state" required />
+
+                <div class="container-error" *ngIf="onSubmit && !ResponsibleForm.value.state">
+                    <span>UF é obrigatório</span>
+                </div>
+            </div>
+
+            <div class="item">
+                <label>Complemento</label>
+                <input class="form-control" type="text" formControlName="complement" />
+            </div>
+        </div>
+
+
+        <div *ngIf="listErrors.length" class="container-errors">
+            <div *ngFor="let error of listErrors" class="alert alert-danger" role="alert">
+                * {{ error }}
+            </div>
+        </div>
+
+        <div class="container-buttons">
+            <div class="item">
+                <button class="btn btn-primary" [disabled]="loading" (click)="validateForms()">
+                  {{ titleButton }}
+              </button>
+            </div>
+        </div>
+
+    </div>
+</div>

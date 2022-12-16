@@ -1,0 +1,16 @@
+<div class="card list-container {{key}}">
+    <div class="card-header p-2 {{key}}">
+        <input type="text" class="form-control {{key}}" placeholder="Pesquisar"
+            (input)="onSearch($event.target)">
+    </div>
+    <div class="card-body p-0 list-content {{key}}">
+
+        <ng-container *ngFor="let item of data;let position = index;">
+            <div class="card rounded-0 {{key}}" (click)="onItemClick(item,position)" *ngIf="item.visible">
+                <div class="card-body p-2 item-content">
+                    <p class="item-value">{{item[targetKey]}}</p>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>

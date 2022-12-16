@@ -1,0 +1,27 @@
+.paginator {
+    ul {
+        display: flex;
+
+        li {
+            padding: 7px 7px 1px 7px;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 17px;
+            line-height: 26px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #9ba5ae;
+
+            .btnPrev {
+                transform: rotate(180deg);
+            }
+        }
+
+        .liSelected {
+            border-bottom: 1px solid #0f6eb4;
+            color: #50555a;
+        }
+    }
+}

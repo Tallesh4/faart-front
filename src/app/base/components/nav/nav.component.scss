@@ -1,0 +1,9 @@
+.menu {
+    background: var(--primary-color);
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    z-index: 98;
+    position: fixed;
+    margin-top: -4px;
+}

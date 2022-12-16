@@ -1,0 +1,30 @@
+<div class="chart-header">
+    <div>
+        <h1 id="titleChart">{{ title }}</h1>
+    </div>
+
+    <div class="chart-options" [formGroup]="formDefault">
+        <div class="d-flex w-100" style="justify-content: flex-end;">
+            <div class="d-flex" style="align-items: center;">
+
+                <div class="input-group m-0 me-3" *ngIf="enableOptionMonth">
+                    <select class="form-select m-0" formControlName="value" (change)="changeMonth(formDefault.value.value)">
+                        <option *ngFor="let item of monthsList" [value]="item.monthNumber">{{ item.name }}</option>
+                    </select>
+                </div>
+
+                <div class="billing-options" *ngIf="enableOptionMonth">
+                    <input formControlName="billing" id="check-billing_{{key}}" (change)="changeBilling()" class="form-check-input m-0 me-2" type="checkbox" value="">
+                    <label class="m-0" for="check-billing_{{key}}">Faturado</label>
+                </div>
+
+
+                <div class="option-span-icon d-flex" (click)="refresh()">
+                    <span class="material-icons m-auto">
+                        refresh
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

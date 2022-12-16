@@ -1,0 +1,17 @@
+<div class="modal-header">    
+    <h4 class="modal-title" id="modal-basic-title">{{ props.title }}</h4>
+    <button 
+        type="button" 
+        class="btn-close" 
+        aria-label="Close" 
+        (click)="setCloseModal(false)"
+  ></button>  
+</div>
+
+<div class="modal-body">
+
+    <div class="d-flex container-image">
+      <img [src]="props.url" alt="" class="m-auto">
+    </div>
+
+</div>

@@ -1,0 +1,78 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{ titleModal }}</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="setCloseModal(false)"></button>
+</div>
+
+<div class="modal-body">
+    <div class="container" [formGroup]="ProductForm">
+
+        <div class="container-items">
+            <div class="item">
+                <label>*Nome do Produto</label>
+                <input class="form-control" type="text" formControlName="name" placeholder="Digite o nome do produto" required />
+            </div>
+
+            <div class="item">
+                <label>*Código do Sistema</label>
+                <input class="form-control" type="text" formControlName="productSku" placeholder="Digite o código do sistema" required />
+            </div>
+        </div>
+
+        <div class="container-items">
+            <div class="item textarea">
+                <label>Descrição </label>
+                <textarea class="form-control" type="text" formControlName="description" placeholder="Digite a descrição"></textarea>
+            </div>
+        </div>
+
+        <div class="container-items">
+            <div class="item">
+                <label>Categoria </label>
+                <input class="form-control" type="text" formControlName="categoryName" placeholder="Digite a categoria" />
+            </div>
+
+            <div class="item">
+                <label>Marca</label>
+                <input class="form-control" type="text" formControlName="brandName" placeholder="Digite a marca" />
+            </div>
+        </div>
+
+        <div class="container-items">
+            <div class="item">
+                <label>Tipo</label>
+                <input class="form-control" type="text" formControlName="type" placeholder="Tipo de Produto (MP,PA,...)" />
+            </div>
+
+            <div class="item">
+                <label>Unidade de Medida</label>
+                <input class="form-control" type="text" formControlName="unity" placeholder="Digite a unidade de medida" />
+            </div>
+        </div>
+
+        <div class="container-items">
+            <div class="item">
+                <label>Url do Produto</label>
+                <input class="form-control" type="text" formControlName="linkUrl" placeholder="Digite a url do produto" required />
+            </div>
+
+            <div class="item">
+                <label>Url da Image</label>
+                <input class="form-control" type="text" formControlName="linkImage" placeholder="Digite a url da image" />
+            </div>
+        </div>
+
+        <div *ngIf="listErrors.length" class="container-errors">
+            <div *ngFor="let error of listErrors" class="alert alert-danger" role="alert">
+                * {{ error }}
+            </div>
+        </div>
+
+        <div class="container-buttons">
+            <div class="item">
+                <button class="btn btn-primary" (click)="validateForms()">
+                    {{ titleButton }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

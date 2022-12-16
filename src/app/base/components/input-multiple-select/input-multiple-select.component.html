@@ -1,0 +1,12 @@
+
+
+<div class="cardInput">
+    <label  class="form-control-label" *ngIf="label">{{label}}</label>
+    <select *ngIf="disabled === 'disabled'" disabled class="input-forms">
+        <option value="{{value}}">{{value}}</option>
+    </select>
+    <select class="input-forms" (change)="onChange($event)">
+        <option value="">-- --</option>
+        <option *ngFor="let item of option" [value]="item.value">{{item.protheusCode}} | {{item.name}}</option>
+    </select>
+</div>

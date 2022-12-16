@@ -1,0 +1,24 @@
+<div class="container-charts">
+    <div class="chart-large">
+        <chart-header
+            [title]="title"
+            (changeOptions)="onChangeOptions($event)"
+            (changRefresh)="onChangeRefresh($event)"
+            (changBilling)="onChangeBilling($event)"
+        ></chart-header>
+
+        <div class="chart-item">
+            <div *ngIf="!loadingClientChart">
+                <div class="chart-large">
+                    <ng-content></ng-content>
+                </div>
+            </div>
+
+            <div class="loading-center" *ngIf="loadingClientChart">
+                <loading-circle
+                    [loading]="loadingClientChart"
+                ></loading-circle>
+            </div>
+        </div>
+    </div>
+</div>

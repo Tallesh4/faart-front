@@ -1,0 +1,224 @@
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0">
+    <a href="index.html" class="navbar-brand ms-lg-5">
+        <h1 class="m-0 text-uppercase text-dark"><i class="bi bi-shop fs-1 text-primary me-3"></i><img src="../../../assets/img/initial-logo-white.png" style="width: 80px; " alt=""></h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto py-0">
+            <a href="site" class="nav-item nav-link active">Home</a>
+            <a class="nav-item nav-link">Sobre-nos</a>
+            <a href="site/ficha" class="nav-item nav-link">Cadastrar</a>
+            <a href="login" class="nav-item nav-link nav-contact text-white px-5" style="border-radius: 5px; margin-right: 30px; background-color: var(--primary-color);">Login</a>
+        </div>
+    </div>
+</nav>
+<!-- Navbar End -->
+
+<div class="register">
+
+    <div class="register-container">
+        <h1 class="register-title">Ficha de Filiação de Associado</h1>
+        <h2>Dados da Entidade</h2>
+        <form class="register-form" [formGroup]="RegistrationFormForm">
+            <div>
+                <label>Nome entidade:</label>
+                <input formControlName="entityName" type="text" id="entityName" name="entityName" placeholder="nome entidade" />
+            </div>
+            <div>
+                <label>Nome fantasia:</label>
+                <input formControlName="fantasyName" type="text" id="fantasyName" name="fantasyName" placeholder="nome fantasia" />
+            </div>
+            <div>
+                <label>Forma Jurídica (Associação e/ou Cooperativa, ou coletivo):</label>
+                <input formControlName="legalForm" type="text" id="legalForm" name="legalForm" placeholder="forma juridica" />
+            </div>
+
+            <div class="container-address">
+                <div class="item">
+                    <label>CEP</label>
+
+                    <div style="margin-top: 4px;" class="input-group mb-3">
+                        <input style="margin: 0px;" type="text" class="form-control" placeholder="Digite o CEP" formControlName="zipCodeAssociation" />
+
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-primary" (click)="searchAddressAssociation()">
+                            Pesquisar
+                        </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <label>Endereço</label>
+                    <input class="form-control" type="text" placeholder="Digite o endereço" formControlName="streetAssociation" />
+                </div>
+
+                <div class="item">
+                    <label>Cidade</label>
+                    <input class="form-control" type="text" placeholder="Digite o nome da cidade" formControlName="cityAssociation" />
+
+                </div>
+            </div>
+
+            <div class="container-address">
+                <div class="item">
+                    <label>Número</label>
+                    <input class="form-control" type="text" placeholder="Digite o número" formControlName="numberAssociation" />
+                </div>
+
+                <div class="item">
+                    <label>UF</label>
+                    <input class="form-control" type="text" placeholder="Digite a UF" formControlName="stateAssociation" />
+                </div>
+
+                <div class="item">
+                    <label>Complemento</label>
+                    <input class="form-control" type="text" formControlName="complementAssociation" />
+                </div>
+            </div>
+
+            <div>
+                <label>CNPJ</label>
+                <input formControlName="cnpjAssociation" type="text" placeholder="xx.xxx.xxx/0001-xx" />
+            </div>
+
+            <div>
+                <label>Telefone</label>
+                <input formControlName="phoneAssociation" type="tel" id="telefone-da-entidade" name="telefone-da-entidade" placeholder="(xx) xxxxx-xxxx" />
+            </div>
+            <div>
+                <label>E-mail da entidade</label>
+                <input formControlName="emailAssociation" type="email" id="email" name="email" placeholder="e-mail" />
+            </div>
+
+            <br/>
+            <br/>
+
+            <h2>Dados do Responsável</h2>
+
+            <br/>
+            <br/>
+
+            <div>
+                <label>Nome do Responsável</label>
+                <input formControlName="name" type="text" id="name" name="name" placeholder="nome do responsável" />
+            </div>
+
+            <div>
+                <label>Cargo na Entidade</label>
+                <input formControlName="job" type="text" id="job" name="job" placeholder="nome na entidade" />
+            </div>
+
+            <div class="container-address">
+                <div class="item">
+                    <label>CEP</label>
+
+                    <div style="margin-top: 4px;" class="input-group mb-3">
+                        <input style="margin: 0px;" type="text" class="form-control" placeholder="Digite o CEP" formControlName="zipCodeResponsible" />
+
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-primary" (click)="searchAddressResponsible()">
+                            Pesquisar
+                        </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <label>Endereço</label>
+                    <input class="form-control" type="text" placeholder="Digite o endereço" formControlName="streetResponsible" />
+                </div>
+
+                <div class="item">
+                    <label>Cidade</label>
+                    <input class="form-control" type="text" placeholder="Digite o nome da cidade" formControlName="cityResponsible" />
+
+                </div>
+            </div>
+
+            <div class="container-address">
+                <div class="item">
+                    <label>Número</label>
+                    <input class="form-control" type="text" placeholder="Digite o número" formControlName="numberResponsible" />
+                </div>
+
+                <div class="item">
+                    <label>UF</label>
+                    <input class="form-control" type="text" placeholder="Digite a UF" formControlName="stateResponsible" />
+                </div>
+
+                <div class="item">
+                    <label>Complemento</label>
+                    <input class="form-control" type="text" formControlName="complementResponsible" />
+                </div>
+            </div>
+
+            <div>
+                <label>Telefone</label>
+                <input formControlName="phone" type="text" id="phone" name="phone" placeholder="(xx) xxxxx-xxxx" />
+            </div>
+
+            <div>
+                <label>CPF</label>
+                <input formControlName="cpf" type="text" id="cpf" name="cpf" placeholder="000.000.000-00" />
+            </div>
+
+            <div>
+                <label>Email</label>
+                <input formControlName="email" type="text" id="email" name="email" placeholder="joao@email.com" />
+            </div>
+
+            <div>
+                <label>RG</label>
+                <input formControlName="rg" type="text" id="rg" name="rg" placeholder="0.000.000" />
+            </div>
+
+            <div>
+                <label>Órgão Expedidor</label>
+                <input formControlName="bodyExpeditor" type="text" id="bodyExpeditor" name="bodyExpeditor" placeholder="expedidor da Carteira de Identidade" />
+            </div>
+
+            <div>
+                <label>Estado civil</label>
+                <select formControlName="maritalStatus" name="maritalStatus">
+                    <option value="Solteiro">Solteiro (a)</option>
+                    <option value="Casado">Casado (a)</option>
+                    <option value="Divorciado">Divorciado (a)</option>
+                    <option value="Viúvo">Viúvo (a)</option>
+                </select>
+            </div>
+            <div>
+                <label>Nacionalidade</label>
+                <input formControlName="nationality" type="text" id="nationality" name="nationality" placeholder="brasileiro (a)" />
+            </div>
+            <div>
+                <label>Naturalidade</label>
+                <input formControlName="naturalness" type="text" id="naturalness" name="naturalness" placeholder="local de origem" />
+            </div>
+            <div>
+                <label>Data de Filiação:</label>
+                <input formControlName="dateFiliation" type="date" id="dateFiliation" name="dateFiliation" placeholder="dd/mm/aaaa" />
+            </div>
+            <div>
+                <label>Nº Carteira de Artesão SICAB:</label>
+                <input formControlName="nArtisanWallet" type="text" id="nArtisanWallet" name="nArtisanWallet" placeholder="" />
+            </div>
+            <div>
+                <label>Data de vencimento carteira:</label>
+                <input formControlName="dueDateArtisanWallet" type="date" id="dueDateArtisanWallet" name="dueDateArtisanWallet" placeholder="dd/mm/aaaa" />
+            </div>
+
+            <div *ngIf="listErrors.length" class="container-errors">
+                <div *ngFor="let error of listErrors" class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            </div>
+
+            <button class="register-submit" [disabled]="loading" (click)="validateForms()">Enviar</button>
+
+        </form>
+    </div>
+</div>

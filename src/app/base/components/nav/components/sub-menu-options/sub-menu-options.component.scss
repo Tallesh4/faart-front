@@ -1,0 +1,86 @@
+.notificationBox {
+    z-index: 10;
+    width: 356px;
+    //height: 164px;
+    position: absolute;
+    right: 10px;
+    max-height: 164px;
+    background: #ffffff;
+    box-shadow: 0px 10px 10px 4px rgb(0 0 0 / 15%);
+    border-radius: 6px;
+    #titleperson {
+        color: #000000;
+        font-weight: bold;
+        padding: 12px 12px 0px;
+        margin: 0;
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    .content {
+        a {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 12px;
+            color: var(--dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            &:hover {
+                background: var(--primary-color);
+                cursor: pointer;
+                color: #ffffff;
+                span {
+                    &.material-icons.darkcolor {
+                        color: #ffffff;
+                    }
+                }
+            }
+            p {
+                margin: 0;
+                font-size: 16px;
+                margin-left: 10px;
+            }
+            span {
+                &.material-icons.darkcolor {
+                    color: var(--dark);
+                }
+            }
+        }
+        .btnLogout {
+            display: flex;
+            border: none;
+            background: #ffffff;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 16px;
+            color: var(--dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 13px;
+            width: 100%;
+            p {
+                margin: 0;
+                margin-left: 12px;
+            }
+            &:hover {
+                background: var(--primary-color);
+                cursor: pointer;
+                color: #ffffff;
+                span {
+                    &.material-icons.darkcolor {
+                        color: #ffffff;
+                    }
+                }
+            }
+            span {
+                &.material-icons.darkcolor {
+                    color: var(--dark);
+                }
+            }
+        }
+    }
+}

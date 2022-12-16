@@ -1,0 +1,40 @@
+<div class="verify-screen">
+	<div class="container-logo">
+	</div>
+	<div class="container-box">
+	<div class="container-form">
+		<form (ngSubmit)="onSubmit()" [formGroup]="form">
+			<img src="../../../assets/img/initial_logo.png" id="logoinicial">
+			<div class="header">
+				<h3>Entrar</h3>
+				<p>Acesso para Clientes</p>
+			</div>
+
+			<div class="message">
+				<p>Digite o código enviado para seu email</p>
+			</div>
+			<input type="hidden" name="token" value="token" formControlName="token">
+			<div class="verify-box">
+				<div class="verify-box">
+					<label for="code">Código</label>
+					<input
+					type="number"
+					name="code"
+					id="code"
+					placeholder="Digite o código"
+					formControlName="code"
+				/>
+				</div>
+			</div>
+			<div class="container-buttons">
+				<button type="submit" class="btns btns-black" [disabled]="submitting">Verificar</button>
+			</div>
+		</form>
+		<div class="loading">
+			<div class="spinner-border text-warning" role="status" *ngIf="submitting">
+				<span class="visually-hidden">Loading...</span>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>

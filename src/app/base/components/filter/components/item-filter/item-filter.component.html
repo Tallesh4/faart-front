@@ -1,0 +1,10 @@
+<div class="filter">
+  <label>{{ title }}</label>
+
+  <select class="form-select" aria-label="Default select example" (change)="selected($event.target)" *ngIf="!loading">
+    <option selected value="">Todos</option>
+    <option *ngFor="let item of itemList" [value]="item._id">
+      {{ item.name }}
+    </option>
+  </select>
+</div>

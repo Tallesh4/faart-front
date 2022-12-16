@@ -1,0 +1,160 @@
+.filters {
+	display: flex;
+	flex-wrap: wrap;
+
+	label {
+		margin-left: 10px;
+		font-family: "Roboto";
+		font-style: normal;
+		font-weight: bold;
+		font-size: 14px;
+		color: var(--dark);
+	}
+	.filtro {
+		display: flex;
+		flex-direction: column;
+		width: 20%;
+		margin-top: 16px;
+
+		.loadingMaterial {
+			padding: 25px;
+			background: var(--white);
+			border: 1px solid #e5e5e5;
+			box-sizing: border-box;
+			box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+			border-radius: 6px;
+			margin: 10px;
+			padding: 7px 32px 7px 10px;
+			width: 95%;
+			display: flex;
+			align-items: center;
+
+			p {
+				font-family: "Roboto";
+				font-style: normal;
+				font-weight: 500;
+				color: var(--dark);
+				margin: 0;
+				font-size: 15px;
+				padding-left: 7px;
+				font-weight: 500;
+			}
+		}
+
+		.field {
+			display: flex;
+			width: 100%;
+			position: relative;
+			input {
+				width: 100%;
+			}
+
+			img {
+				position: absolute;
+				right: 24px;
+				top: 21px;
+			}
+		}
+
+		.campos {
+			font-family: "Roboto";
+			font-style: normal;
+			font-weight: normal;
+			font-size: 16px;
+			-webkit-appearance: none;
+			background: var(--white);
+			border: 1px solid #e5e5e5;
+			box-sizing: border-box;
+			box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+			border-radius: 6px;
+			// width: 111px;
+			// height: 29px;
+			margin: 10px;
+			padding: 7px 0 7px 10px;
+			outline: none;
+		}
+
+		.field-select {
+			display: flex;
+			position: relative;
+			width: 100%;
+
+			.fields {
+				&:hover {
+					cursor: pointer;
+				}
+				font-family: "Roboto";
+				font-style: normal;
+				font-weight: normal;
+				font-size: 18px;
+				line-height: 21px;
+				color: #50555a;
+				-webkit-appearance: none;
+				background: var(--white);
+				border: 1px solid #e5e5e5;
+				box-sizing: border-box;
+				box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+				border-radius: 6px;
+				margin: 10px;
+				padding: 7px 80px 7px 10px;
+				outline: none;
+				width: 100%;
+			}
+
+			.select-range {
+				pointer-events: none;
+				padding: 2px 4px 2px 4px;
+				position: absolute;
+				right: 48px;
+				top: 16px;
+				border-radius: 4px;
+				background-color: var(--divider);
+				color: var(--dark);
+				font-size: 12px;
+			}
+
+			.select-icon {
+				pointer-events: none;
+				position: absolute;
+				right: 16px;
+				top: 21px;
+			}
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
+		button {
+			display: flex;
+			align-items: center;
+			padding: 7px 0;
+			background: #0f6eb4;
+			border-radius: 4px;
+			font-family: Roboto;
+			font-style: normal;
+			font-weight: 700;
+			font-size: 14px;
+			line-height: 21px;
+			color: #fff;
+			border: none;
+			width: 110px;
+			margin: 38px 0px 0px 13px;
+			span {
+				margin: 0 7px 0 9px;
+
+				&.material-icons.white {
+					color: #ffffff;
+				}
+			}
+
+			&:hover {
+				cursor: pointer;
+			}
+
+			&:disabled{
+				background: #9BA5AE;
+			}
+		}
+	}
+}

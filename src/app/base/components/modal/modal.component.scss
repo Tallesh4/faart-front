@@ -1,0 +1,62 @@
+.wiz-modal {
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		background: rgba(0, 0, 0, 0.5);
+		width: 100%;
+		height: 100%;
+		z-index: 999;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		backdrop-filter: blur(2px);
+		text-align: left;
+		max-height: 100vh;
+		overflow: auto;
+		&.noCenter {
+			align-items: flex-start;
+			.content {
+				margin: 40px 0px;
+			}
+		}
+		.content {
+			min-width: 900px;
+			width: 900px;
+			// padding: 20px;
+			// border-radius: 9px;
+			border: none;
+			box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px;
+			background: #fff;
+			position: relative;
+			.header {
+				// background: linear-gradient(#6d7379, #656565);
+				// color: #fff;
+				font-size: 18px;
+				// border-radius: 8px 9px 0px 0px;
+				padding: 10px 20px;
+				margin-top: 20px;
+				font-style: normal;
+				font-weight: 500;
+				font-size: 26px;
+				line-height: 39px;
+				color: var(--blue-dark);
+			}
+			.container {
+				padding: 20px;
+				margin: 20px 0px;
+			}
+			button.close {
+				position: absolute;
+				right: 3px;
+				top: 12px;
+				width: 30px;
+				// height: 30px;
+				border: none;
+				background: transparent;
+				z-index: 9999999;
+				&:hover {
+					cursor: pointer;
+				}
+			}
+		}
+	}

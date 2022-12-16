@@ -1,0 +1,87 @@
+<div *ngIf="item != undefined">
+
+    <div class="item" [style.backgroundColor]="item.headerColor">
+        <div class="header active opened" #header (click)="toggleBodyVisibility(header)">
+            <h2>
+                {{item.title}}
+            </h2>
+            <div class="end-content">
+                <div class="icons">
+                    <span class="material-icons whitecolor">keyboard_arrow_down</span>
+                </div>
+            </div>
+        </div>
+        <div class="body active">
+
+            <ul class="nav nav-tabs" role="tablist" *ngIf="item.tabs.titles && item.tabs.titles.length > 1">
+
+                <ng-container *ngFor="let tabName of item.tabs.titles;let tabPosition = index;">
+                    <li class="nav-item" [attr.role]="'tab-'+cardPosition+'-'+tabPosition">
+                        <button class="nav-link" 
+                            [ngClass]="{active: tabPosition == 0}"
+                            id="tab-{{cardPosition}}-{{tabPosition}}-tab" data-bs-toggle="tab"
+                            [attr.data-bs-target]="'#tab-content-'+cardPosition+'-'+tabPosition" type="button"
+                            role="tab" [attr.aria-controls]="'tab-content-'+cardPosition+'-'+tabPosition"
+                            [attr.aria-selected]="tabPosition == 0 ? true : false">{{tabName}}</button>
+                    </li>
+                </ng-container>
+
+            </ul>
+
+            <div class="tab-content" style="height:450px;">
+
+                <ng-container *ngFor="let content of item.tabs.contents;let contentPosition = index;">
+
+                    <div class="tab-pane fade" [ngClass]="{show: contentPosition == 0,active: contentPosition==0}"
+                        id="tab-content-{{cardPosition}}-{{contentPosition}}" role="tabpanel"
+                        [attr.aria-labelledby]="'tab-'+cardPosition+'-'+contentPosition+'-tab'" style="height: 100%;">
+
+                        <div class="card bg-light" style="display:flex;flex-direction: column;height: 100%;">
+
+                            <div class="tab-content" style="flex:1">
+                                <ng-container
+                                    *ngFor="let subContent of content.contents;let subContentPosition = index;">
+
+                                    <div class="tab-pane fade"
+                                        [ngClass]="{show: subContentPosition == 0,active: subContentPosition==0}"
+                                        id="sub-tab-content-{{cardPosition}}-{{contentPosition}}-{{subContentPosition}}" role="tabpanel"
+                                        [attr.aria-labelledby]="'tab-content-'+cardPosition+'-'+contentPosition+'-'+subContentPosition"
+                                        style="height: 100%;">
+                                        <app-content-view [contentItem]="subContent"></app-content-view>
+                                    </div>
+
+                                </ng-container>
+                            </div>
+
+                            <ul class="nav nav-tabs" role="tablist" *ngIf="content.titles && content.titles.length > 1">
+
+                                <ng-container *ngFor="let tabName of content.titles;let subTabPosition = index;">
+
+                                    <li class="nav-item" [attr.role]="'sub-tab-'+cardPosition+'-'+subTabPosition">
+
+                                        <button class="nav-link" [ngClass]="{active: subTabPosition == 0}"
+                                            id="tab-content-{{cardPosition}}-{{contentPosition}}-{{subTabPosition}}" 
+                                            type="button"
+                                            data-bs-toggle="tab"
+                                            [attr.data-bs-target]="'#sub-tab-content-'+cardPosition+'-'+contentPosition+'-'+subTabPosition"
+                                            role="tab"
+                                            [attr.aria-controls]="'sub-tab-content-'+cardPosition+'-'+contentPosition+'-'+subTabPosition"
+                                            [attr.aria-selected]="subTabPosition == 0 ? true : false">
+                                            {{tabName}}
+                                        </button>
+
+                                    </li>
+
+                                </ng-container>
+
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </ng-container>
+
+            </div>
+        </div>
+    </div>
+</div>

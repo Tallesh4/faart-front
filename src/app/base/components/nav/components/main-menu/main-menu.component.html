@@ -1,0 +1,37 @@
+<div>
+    <input type="checkbox" id="check">
+    <label for="check" id="menu" (click)="close()">
+		<i *ngIf="open" class="material-icons close">menu</i>
+		<i *ngIf="!open" class="material-icons close">close</i>
+	</label>
+    <nav class="menuPrincipal">
+        <ul>
+            <div class="img-home">
+                <img src="../../../../../../assets/img/initial-logo-white.png" alt="Logo CB Armas" id="cba">
+            </div>
+            <div *ngFor="let menuItem of menuItems">
+                <li *ngIf="myAccessLevel <=  menuItem.level" class="accordion">
+                    <a [routerLink]="[menuItem.path]" (click)="abrirMenu(menuItem.accordion)">
+                        <span class="material-icons md-24 whitecolor">
+							{{menuItem.icon}}
+						</span>
+                        <h3>{{menuItem.title}}</h3>
+                        <i *ngIf="menuItem.accordion.length > 0" class="material-icons md-24 whitecolor">
+							expand_more
+						</i>
+                    </a>
+                    <ul class="homeSubmenu" [ngStyle]="{'display': acordion}" *ngIf="menuItem.accordion.length > 0">
+                        <li class="homeSubmenuli" *ngFor="let menuAccordion of menuItem.accordion">
+                            <a [routerLink]="[menuAccordion.path]">
+                                <span class="material-icons md-24 whitecolor">
+									{{menuAccordion.icon}}
+								</span>
+                                <h3>{{menuAccordion.title}}</h3>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+        </ul>
+    </nav>
+</div>

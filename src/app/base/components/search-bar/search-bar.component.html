@@ -1,0 +1,21 @@
+<div class="search-bar">
+	<div class="bar">
+		<label for="">Pesquisar</label>
+		<div class="field" [formGroup]="SearchBar">
+			<input
+				type="text"
+				placeholder="{{placeholder}}"
+				class="campos"
+                formControlName="value"
+				(input)="searchItem()"
+				(keydown.enter)="searchItem()"
+            />
+
+			<img
+				src="../../../../assets/icons/search.svg"
+				alt="Barra de pesquisa"
+			/>
+		</div>
+
+	</div>
+</div>

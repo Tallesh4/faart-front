@@ -1,0 +1,30 @@
+<div *ngIf="contentItem.type == 'table' && contentItem.data" style="height: 100%;">
+    <app-paginated-table [paginated]="contentItem.paginated ? contentItem.paginated : false"
+        [tableConfig]="contentItem.data"></app-paginated-table>
+</div>
+
+<div *ngIf="contentItem.type == 'images' && contentItem.data"
+    style="display: flex;flex-direction: row;height: 100%;width: 100%;overflow-x: auto;background-color: var(--interface);">
+    <div *ngFor="let item of contentItem.data" class="image-container" (click)="openModalImage(item)">
+        <h5>{{item.title}}</h5>
+        <img [src]="item.url" alt="{{item.title}}">
+    </div>
+
+</div>
+
+<div *ngIf="contentItem.type == 'share' && contentItem.data" class="container-flex-horizontal graphs">
+    <ng-container *ngFor="let item of contentItem.data">
+        <div class="chart-item">
+            <div>
+                <div class="chart-small">
+                    <simple-bar-graph [labels]="item.labels" [datasets]="item.dataSets"
+                        type="pie" [label]="item.title" [title]="item.title"></simple-bar-graph>
+                </div>
+            </div>
+<!-- 
+            <div class="loading-center" *ngIf="loadingPaymentConditionChart">
+                <loading-circle [loading]="loadingPaymentConditionChart"></loading-circle>
+            </div> -->
+        </div>
+    </ng-container>
+</div>

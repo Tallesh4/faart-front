@@ -1,0 +1,50 @@
+.indicator-container{
+    padding: 15px;
+    width: 100%;
+}
+
+.blue-indicator{
+    width: 100%;
+}
+
+.body-items{
+    display: flex;
+  
+    .items{
+        width: 100%;
+        margin-left: 50px;
+        margin-right: 25px;
+
+        p {
+            font-family: 'Roboto';
+            font-weight: bold;
+            color: var(--dark);
+        }
+
+        #value{
+            font-size: 25px;
+        }
+    }
+
+}
+
+.loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 10vh;
+}
+
+.item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.indicator-value {
+    margin: 0px;
+    font-weight: bold;
+    font-size: 35px;
+    color: var(--dark);
+}

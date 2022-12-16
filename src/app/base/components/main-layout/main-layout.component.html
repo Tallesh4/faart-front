@@ -1,0 +1,6 @@
+<app-nav *ngIf="showMenu"></app-nav>
+<!-- <app-nav ></app-nav> -->
+
+<main [class.noMargin]="!showMenu">
+	<router-outlet></router-outlet>
+</main>

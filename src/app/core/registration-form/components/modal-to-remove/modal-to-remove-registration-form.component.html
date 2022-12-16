@@ -1,0 +1,30 @@
+<div class="modal-header">
+    <h4 class="modal-title">Tem certeza que deseja excluir?</h4>
+ </div>
+ 
+ <div class="modal-body">
+     <div class="d-flex justify-content-around">
+         <button 
+            type="button" 
+            class="btn btn-success btn-lg"
+            (click)="removeItems()"
+            *ngIf="!loadingDelete"
+         >
+            Sim
+         </button>
+ 
+         <button 
+            type="button" 
+            class="btn btn-danger btn-lg"
+            (click)="setCloseModal(false)"
+            *ngIf="!loadingDelete"
+         >
+            Não
+         </button>
+ 
+     </div>
+ 
+     <loading-circle
+        [loading]="loadingDelete"
+     ></loading-circle>
+ </div>

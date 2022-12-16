@@ -1,0 +1,159 @@
+
+<div class="container-filter">
+    <form [formGroup]="FilterForm">
+        <div class="container-filters" *ngIf="!loadingFilter">
+
+            <div class="filter" *ngIf="filters.branch">
+                <label>Filiais</label>
+
+                <select class="form-select" formControlName="branches" (change)="changeFilter()">
+                  <option selected value="">Todos</option>
+                  <option *ngFor="let item of filterData.branches!" [value]="item.id">
+                    {{ item.name }}
+                  </option>
+                </select>
+            </div>
+
+            <div class="filter" *ngIf="filters.director">
+                <label>Diretor</label>
+
+                <select class="form-select" formControlName="directors" (change)="changeFilter()">
+                  <option selected value="">Todos</option>
+                  <option *ngFor="let item of filterData.directors!" [value]="item.id">
+                    {{ item.name }}
+                  </option>
+                </select>
+            </div>
+
+            <div class="filter" *ngIf="filters.manager">
+                <label>Gerente</label>
+
+                <select class="form-select" formControlName="managers" (change)="changeFilter()">
+                  <option selected value="">Todos</option>
+                  <option *ngFor="let item of filterData.managers!" [value]="item.id">
+                    {{ item.name }}
+                  </option>
+                </select>
+            </div>
+
+            <div class="filter" *ngIf="filters.coordinator">
+                <label>Coordenador</label>
+
+                <select class="form-select" formControlName="coordinators" (change)="changeFilter()">
+                  <option selected value="">Todos</option>
+                  <option *ngFor="let item of filterData.coordinators!" [value]="item.id">
+                    {{ item.name }}
+                  </option>
+                </select>
+            </div>
+
+            <div class="filter" *ngIf="filters.supervisor">
+                <label>Supervisores</label>
+
+                <select class="form-select" formControlName="supervisors" (change)="changeFilter()">
+                  <option selected value="">Todos</option>
+                  <option *ngFor="let item of filterData.supervisors!" [value]="item.id">
+                    {{ item.name }}
+                  </option>
+                </select>
+            </div>
+
+            <div class="filter" *ngIf="filters.seller">
+                <label>Vendedores</label>
+
+                <select class="form-select" formControlName="sellers" (change)="changeFilter()">
+                  <option selected value="">Todos</option>
+                  <option *ngFor="let item of filterData.sellers!" [value]="item.id">
+                    {{ item.name }}
+                  </option>
+                </select>
+            </div>
+
+
+						<div class="filter" *ngIf="filters.network">
+								<label>Redes</label>
+
+								<select class="form-select" formControlName="networks" (change)="changeFilter()">
+									<option selected value="">Todos</option>
+									<option *ngFor="let item of filterData.networks!" [value]="item.id">
+										{{ item.name }}
+									</option>
+								</select>
+						</div>
+
+            <div class="filter" *ngIf="filters.channel">
+                <label>Canal</label>
+
+                <select class="form-select" formControlName="channels" (change)="changeFilter()">
+                  <option selected value="">Todos</option>
+                  <option *ngFor="let item of filterData.channels!" [value]="item.id">
+                    {{ item.name }}
+                  </option>
+                </select>
+            </div>
+
+
+            <div class="filter" *ngIf="filters.client">
+                <label>Lojas</label>
+
+                <select class="form-select" formControlName="clients">
+                  <option selected value="">Todos</option>
+                  <option *ngFor="let item of filterData.clients!" [value]="item.id">
+                    {{ item.name }}
+                  </option>
+                </select>
+            </div>
+
+            <div class="filter" *ngIf="filters.date">
+                <label>Filtrar por:</label>
+
+                <select class="form-select" aria-label="Default select example" formControlName="periods">
+                  <option selected value="">Selecione</option>
+                  <option value="day">Dia</option>
+                  <option value="periods">Periodo</option>
+                </select>
+            </div>
+
+            <div class="filter" *ngIf="FilterForm.value.periods === 'day'">
+                <label>Dias</label>
+
+                <select class="form-select" aria-label="Default select example" (change)="setDayPeriods($event.target)">
+                    <option selected value="">Selecione</option>
+                    <option value="today">Hoje</option>
+                    <option value="yesterday">Ontem</option>
+                    <option value="7 days">7 dias</option>
+                    <option value="30 days">30 dias</option>
+                  </select>
+            </div>
+
+            <div class="filter" *ngIf="FilterForm.value.periods === 'periods'">
+                <label>Data de início</label>
+                <input
+                    type="date"
+                    class="form-control"
+                    placeholder="Username"
+                    formControlName="startDate"
+                    max="{{ dateToday | date:'yyyy-MM-dd'}}"
+                />
+            </div>
+
+            <div class="filter" *ngIf="FilterForm.value.periods === 'periods'">
+                <label>Data final</label>
+                <input
+                    type="date"
+                    class="form-control"
+                    placeholder="Username"
+                    formControlName="endDate"
+                    max="{{ dateToday | date:'yyyy-MM-dd'}}"
+                />
+            </div>
+
+            <button (click)="submit()" class="btn btn-primary d-flex align-items-middle mt-auto" type="submit">
+                <span class="material-icons">search</span>
+                Procurar
+            </button>
+
+        </div>
+    </form>
+</div>
+

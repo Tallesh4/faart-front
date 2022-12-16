@@ -1,0 +1,33 @@
+<div class="container-bar">
+    <div class="container-search">
+        <label>Pesquisar</label>
+        <div class="marca">
+            <div class="field">
+                <input type="text" placeholder="Pesquisar" class="campos" (input)="searchItem($event.target)" />
+                <img src="../../../assets/icons/search.svg" alt="Ícone de lupa">
+            </div>
+        </div>
+    </div>
+
+    <div class="options">
+        <label>Quantidade</label>
+        <div class="marca">
+            <div class="field">
+                <select (change)="setChangeAmount($event.target)" class="form-select" aria-label="Default select example">
+                    <option *ngFor="let item of amount">
+                        {{ item }}
+                    </option>
+                </select>
+            </div>
+          
+        </div>
+    </div>
+
+    <div class="buttons" >
+        <button (click)="openModal()" class="btn btn-primary" *ngIf="showButtonAdd">
+            <span class="material-icons md-48 whitecolor">add_circle</span>
+            Novo
+        </button>
+    </div>
+    <ng-content></ng-content>
+</div>

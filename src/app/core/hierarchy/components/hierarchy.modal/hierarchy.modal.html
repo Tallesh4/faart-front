@@ -1,0 +1,46 @@
+<ng-template let-modal #content>
+	<div class="modal-header">
+		<h3 class="modal-title">{{ hierarchy ? 'Editando' : 'Criando' }} Hierarquia</h3>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.close()"></button>
+	</div>
+	<div class="modal-body">
+		<form id="form" (ngSubmit)="hierarchy ? update() : create()" [formGroup]="form">
+			<div class="form-group">
+				<label for="tag">Etiqueta</label>
+				<input id="tag" class="form-control" type="text" formControlName="tag">
+                <div class="text-danger" *ngIf="errors && errors.tag">{{errors.tag}}</div>
+			</div>
+			<div class="form-group">
+				<label for="name">Nome</label>
+				<input id="name" class="form-control" type="text" formControlName="name">
+                <div class="text-danger" *ngIf="errors && errors.name">{{errors.name}}</div>
+			</div>
+			<div class="form-group">
+				<label for="level">Nível</label>
+				<input id="level" class="form-control" type="number" formControlName="level">
+                <div class="text-danger" *ngIf="errors && errors.level">{{errors.level}}</div>
+			</div>
+			<div class="form-group">
+				<label for="permissionSearch">Permissões</label>
+				<div class="input-group mb-3">
+					<input id="permissionSearch" class="form-control" list="permissions" #permissionSearch
+						(keydown.enter)="$event.preventDefault();addPermission(permissionSearch.value)">
+					<button class="btn btn-success material-icons" type="button" (click)="addPermission(permissionSearch.value)">add</button>
+				</div>
+				<div class="input-group mt-1" *ngFor="let permission of selectedPermissions;let index = index">
+					<input class="form-control" readonly value="{{permission.tag}}">
+					<button class="btn btn-danger material-icons" type="button" (click)="removePermission(index)">remove</button>
+				</div>
+				<datalist id="permissions">
+					<ng-container *ngFor="let permission of permissions">
+						<option value="{{permission.tag}}">{{permission.name}}</option>
+					</ng-container>
+				</datalist>
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary-outline" type="button" (click)="modal.close()">Cancelar</button>
+		<button class="btn btn-primary" type="submit" form="form">Enviar</button>
+	</div>
+</ng-template>

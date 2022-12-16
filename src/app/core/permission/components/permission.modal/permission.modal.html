@@ -1,0 +1,39 @@
+<ng-template let-modal #content>
+	<div class="modal-header">
+		<h3 class="modal-title">{{ permission ? 'Editando' : 'Criando' }} Permissão</h3>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.close()"></button>
+	</div>
+	<div class="modal-body">
+		<form id="form" (ngSubmit)="permission ? update() : create()" [formGroup]="form">
+			<div class="form-group">
+				<label for="tag">Etiqueta</label>
+				<input id="tag" class="form-control" type="text" formControlName="tag">
+                <div class="text-danger" *ngIf="errors && errors.tag">{{errors.tag}}</div>
+			</div>
+			<div class="form-group">
+				<label for="collectionName">Nome da coleção</label>
+				<input id="collectionName" class="form-control" type="text" formControlName="collectionName">
+                <div class="text-danger" *ngIf="errors && errors.collectionName">{{errors.collectionName}}</div>
+			</div>
+			<div class="form-group">
+				<label for="type">Tipo</label>
+				<input id="type" class="form-control" type="text" formControlName="type">
+                <div class="text-danger" *ngIf="errors && errors.type">{{errors.type}}</div>
+			</div>
+			<div class="form-group">
+				<label for="name">Nome</label>
+				<input id="name" class="form-control" type="text" formControlName="name">
+                <div class="text-danger" *ngIf="errors && errors.name">{{errors.name}}</div>
+			</div>
+			<div class="form-group">
+				<label for="description">Descrição</label>
+				<input id="description" class="form-control" type="text" formControlName="description">
+                <div class="text-danger" *ngIf="errors && errors.description">{{errors.description}}</div>
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary-outline" type="button" (click)="modal.close()">Cancelar</button>
+		<button class="btn btn-primary" type="submit" form="form">Enviar</button>
+	</div>
+</ng-template>

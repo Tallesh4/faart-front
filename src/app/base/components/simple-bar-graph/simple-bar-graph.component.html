@@ -1,0 +1,13 @@
+<div *ngIf="datasets.length">
+    <canvas baseChart
+        [data]="barChartData"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [type]="barChartType"
+    >
+    </canvas>
+</div>
+
+<div *ngIf="!datasets.length">
+    <h1>Nenhum dado encontrado</h1>
+</div>

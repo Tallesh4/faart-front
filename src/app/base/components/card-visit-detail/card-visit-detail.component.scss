@@ -1,0 +1,116 @@
+.item {
+    background: #ffffff;
+    width: 100%;
+    background: #9BA5AE;
+    margin-bottom: 4px;
+
+    &#first{
+        background: #ED7624;
+    }
+
+    &.disabled{
+        opacity: 0.3;
+    }
+
+    .header{
+        padding-right: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &:hover{
+            cursor: pointer;
+        }
+
+        pointer-events: none;
+
+        &.active{
+            pointer-events: all;
+        }
+
+        h2 {
+            background: transparent;
+            color: #fff;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 21px;
+            margin: 0;
+            padding: 10px;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+        
+        .end-content{
+            display: flex;
+            align-items: center;
+
+            .title-of-content{
+                display: flex;
+
+                p{
+                    padding: 0;
+                    color: #FFFFFF;
+                    font-weight: normal;
+                    margin: 0 0 0 5px;
+                    padding: 0 0 0 8px;
+                    border-left: 3px solid #F0F0F0;;
+                    &.no-border{
+                        border: none;
+                    }
+                }
+            }
+
+            .icons{
+                display: flex;
+                align-items: center;
+                margin: 8px;
+                transition-duration: 0.8s;
+                transition-property: transform;
+                transform: rotate(0deg);
+                -webkit-transform: rotate(0deg);
+
+                span{
+
+                    &.material-icons{
+                        font-size: 24px;
+                    }
+
+                    &.material-icons.whitecolor{
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+
+        &.opened{
+                    
+            .icons:first-child{
+                transition-duration: 0.8s;
+                transition-property: transform;
+                transform: rotate(180deg);
+                -webkit-transform: rotate(180deg);
+            }
+        }
+    }
+
+    .body {
+        background: #ffffff;
+        padding: 20px;
+        display: none;
+        &:hover{
+            cursor: pointer;
+        }
+
+        &.active{
+            display: block;
+        }
+
+        .tabs-pag{
+            display: flex;
+            flex-direction: column;
+        }
+
+
+    }
+}

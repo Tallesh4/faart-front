@@ -1,0 +1,46 @@
+<div class="marcas-screen">
+    <div class="header">
+        <h2>{{title}}</h2>
+    </div>
+    <div class="loading text-center mt-5" *ngIf="loadingTable">
+        <div class="spinner-border text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <div class="tableData">
+        <table *ngIf="!loadingTable">
+            <tr>
+                <th *ngFor="let coluns of cabecalhoTable">
+                    <img src="../../../assets/icons/arrow-table.svg" alt="ícone de seta para ordenar tabela"/>
+                </th>
+            </tr>
+            <ng-container *ngIf="!notTable">
+                <tr *ngFor="let tableIten of tableItens">
+                    <td *ngFor="let coluns of cabecalhoTable"></td>
+                    <td>
+                        <a>
+                            <i class="material-icons md-48 whitecolor visibility">visibility</i>
+                        </a>
+                    </td>
+                </tr>
+            </ng-container>
+            <div *ngIf="notTable">
+                <p style="font-size:18px;">Não existe itens pra ser renderizado</p>
+            </div>
+        </table>
+
+        <div class="finishTable">
+            <h3>Total: {{tableItens.length}}</h3>
+            <div class="paginator">
+                <div class="paginator" id="paginator">
+                    <pagination-controls nextLabel="Próximo" previousLabel="Anterior">
+                    </pagination-controls>
+                </div>
+            </div>
+            <button style="background-color: red;">
+                <img src="../../../assets/icons/downloadIcon.svg" alt="Ícone de Download" />
+                Exportar Excel
+            </button>
+        </div>
+    </div>
+</div>

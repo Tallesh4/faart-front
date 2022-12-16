@@ -1,0 +1,26 @@
+.btns{
+		border-radius: 4px;
+		font-family: Roboto;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 16px;
+		border: none;
+		padding: 8px 40px;
+		box-sizing: border-box;
+		background: red;
+}
+
+.btns-black{
+	background: #010422;
+	color: var(--white);
+
+	&:hover {
+		filter: brightness(1.1);
+		cursor: pointer;
+	}
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: context-menu;
+	}
+}

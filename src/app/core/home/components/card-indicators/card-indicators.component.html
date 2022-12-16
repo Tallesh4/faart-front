@@ -1,0 +1,22 @@
+<div class="card-body">
+    <div class="row">
+        <div class="col">
+            <h5 class="text-uppercase text-muted mb-0 card-title">{{title}}</h5>
+            <span class="h2 font-weight-bold mb-0" *ngIf="!loading">{{value}}</span>
+            <div class="body" *ngIf="loading">
+                <div class="loading-center">
+                    <loading-circle [loading]="loading"></loading-circle>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-auto col">
+            <div class="icon icon-shape text-white rounded-circle shadow" [style]="style">
+                <span class="material-icons-outlined">{{icon}}</span>
+            </div>
+        </div>
+    </div>
+    <p class="mt-3 mb-0 text-muted text-sm">
+        <span class="text-nowrap">{{descriptionTimeline}}</span>
+    </p>
+</div>

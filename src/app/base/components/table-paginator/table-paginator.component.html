@@ -1,0 +1,10 @@
+<div class="paginator">
+    <pagination-controls
+        [id]="paginationId"
+        (pageChange)="page = $event"
+        (pageChange)="changePage($event)"
+        nextLabel="Próximo"
+        previousLabel="Anterior"
+    >
+    </pagination-controls>
+</div>

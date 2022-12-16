@@ -1,0 +1,118 @@
+<div class="itemContainer">
+	<fast-navigation
+	[fastNavigationData]="fastNavigationData"
+	></fast-navigation>
+	<div>
+	<h2>Permissões</h2>
+	<div class="filtros">
+		<div>
+			<server-search-bar value="{{search}}" (changeSearch)="changeSearch($event)"></server-search-bar>
+		</div>
+
+		<div class="qtd">
+			<label for="">Quantidade</label>
+			<div class="field-select">
+				<select class="campos" (change)="changePerPage($event.target)" value="{{perPage}}">
+					<option value="10">10</option>
+					<option value="25">25</option>
+					<option value="50">50</option>
+					<option value="100">100</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="buttons">
+			<button class="btn btn-primary d-flex py-auto btn-large" (click)="permissionModal.open()" *ngIf="showCreatePermission">
+				<span class="material-icons md-48 whitecolor">add_circle</span>
+				Novo
+			</button>
+
+			<button class="btn btn-warning d-flex py-auto btn-large" type="button" *ngIf="query.enabled" (click)="toggleArchived()">
+				<span class="material-icons md-48 whitecolor">visibility_off</span>
+				Arquivados
+			</button>
+			<button class="btn btn-secondary" type="button" [class.btn-warning]="selectedItems.length" *ngIf="query.enabled" (click)="archiveItems()">
+				<span class="material-icons md-48 whitecolor">archive</span>
+			</button>
+			<button class="btn btn-primary d-flex py-auto btn-large" type="button" *ngIf="!query.enabled" (click)="toggleArchived()">
+				<span class="material-icons md-48 whitecolor">visibility</span>
+				Ativos
+			</button>
+			<button class="btn btn-secondary" type="button" [class.btn-info]="selectedItems.length" *ngIf="!query.enabled" (click)="restoreItems()">
+				<span class="material-icons md-48 whitecolor">restore</span>
+			</button>
+		</div>
+	</div>
+
+	<loading-table-brands
+		[loadingTableItems]="loading"
+	></loading-table-brands>
+
+
+	<div class="tableData">
+		<table>
+			<thead>
+			<tr>
+				<th><input type="checkbox" class="form-check-input"/></th>
+				<th *ngFor="let header of headers" (click)="changeSort(header)">{{header.value}}
+				<img *ngIf="header.key == sortBy" src="../../../assets/icons/arrow-table.svg" alt="ícone de seta para ordenar tabela"
+					[class.sortIcon]="sort == 'asc' ? true : false" />
+				</th>
+				<th class="text-end">Ações</th>
+			</tr>
+			</thead>
+			<tbody *ngIf="loading">
+			<tr *ngFor="let a of getLoadLines()">
+				<td><input type="checkbox"/></td>
+				<td><ngx-skeleton-loader appearance="line" style="padding: 0"></ngx-skeleton-loader></td>
+				<td><ngx-skeleton-loader appearance="line" style="padding: 0"></ngx-skeleton-loader></td>
+				<td><ngx-skeleton-loader appearance="line" style="padding: 0"></ngx-skeleton-loader></td>
+				<td><ngx-skeleton-loader appearance="line" style="padding: 0"></ngx-skeleton-loader></td>
+			</tr>
+			</tbody>
+			<tbody *ngIf="!loading">
+			<tr *ngFor="let item of items | paginate: { itemsPerPage: perPage, currentPage: page, totalItems: total }">
+				<td><input type="checkbox" class="form-check-input" (change)="toggleSelectItem($event, item)"/></td>
+				<td>{{ item.tag }}</td>
+				<td>{{ item.collectionName }}</td>
+				<td>{{ item.type }}</td>
+				<td>{{ item.name }}</td>
+				<td>{{ item.description }}</td>
+				<td class="text-end pe-3">
+					<div class="btn-group" role="group" aria-label="Ações">
+						<button class="btn btn-primary material-icons" type="button" (click)="permissionModal.open(item)" *ngIf="showUpdatePermission">edit</button>
+						<button class="btn btn-danger material-icons" type="button" (click)="deletePermissionModal.open(item)" *ngIf="showDeletePermission">delete</button>
+					</div>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+		<div *ngIf="!loading && !items.length">
+			<h2 style="text-align: center;">Nenhum dado encontrado</h2>
+		</div>
+		<div class="finishTable">
+			<h3>Total: {{ total }}</h3>
+			<div class="paginator">
+				<div class="paginator" id="paginator">
+					<pagination-controls
+						(pageChange) = "changePage($event)"
+						nextLabel="Próximo"
+						previousLabel="Anterior"
+					>
+					</pagination-controls>
+				</div>
+			</div>
+
+			<!-- <button-excel
+				[modelExport]="exportData"
+				[tableData]="listItems"
+				reportName="Marcas"
+			></button-excel> -->
+		</div>
+	</div>
+
+
+	</div>
+</div>
+<permission-modal #permissionModal (onClose)="getPermissions()"></permission-modal>
+<delete-permission-modal #deletePermissionModal (onClose)="getPermissions()"></delete-permission-modal>

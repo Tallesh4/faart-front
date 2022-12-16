@@ -1,0 +1,19 @@
+<div class="indicator-box">
+    <div class="header" [style]="style">
+        <span class="material-icons whitecolor">{{ materialIcon }}</span>
+        <p>{{ title }}</p>
+    </div>
+    <div class="body" *ngIf="!loading">
+        <p>{{ value }}</p>        
+        <p>{{ description }}</p>
+    </div>
+
+    <div class="body" *ngIf="loading">
+        <div class="loading-center">
+            <loading-circle
+                [loading]="loading"
+            ></loading-circle>
+        </div>
+    </div>
+
+</div>

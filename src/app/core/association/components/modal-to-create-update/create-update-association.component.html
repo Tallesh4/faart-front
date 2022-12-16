@@ -1,0 +1,161 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{ titleModal }}</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="setCloseModal(false)"></button>
+</div>
+
+<div class="modal-body">
+    <div class="container" [formGroup]="AssociationForm">
+
+        <div class="container-items">
+            <div class="item">
+                <label>Nome da Entidade</label>
+                <input class="form-control" type="text" placeholder="Digite o nome completo" formControlName="entityName" required />
+
+                <div class="container-error" *ngIf="errors.entityName && errors.entityName.length">
+                    <span>{{ errors.entityName[0] }}</span>
+                </div>
+
+                <div class="container-error" *ngIf="onSubmit && !AssociationForm.value.entityName">
+                    <span>Nome da Entidade é obrigatória</span>
+                </div>
+            </div>
+
+            <div class="item">
+                <label>Nome Fantasia</label>
+                <input class="form-control" type="text" placeholder="Digite o nome fantasia" formControlName="fantasyName" required />
+
+                <div class="container-error" *ngIf="errors.fantasyName && errors.fantasyName.length">
+                    <span>{{ errors.fantasyName[0] }}</span>
+                </div>
+
+                <div class="container-error" *ngIf="onSubmit && !AssociationForm.value.fantasyName">
+                    <span>Nome Fantasia é obrigatório</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-items">
+            <div class="item">
+                <label>Forma Juridica</label>
+                <input class="form-control" type="text" placeholder="Digite a forma juridica" formControlName="legalForm" required />
+
+                <div class="container-error" *ngIf="errors.legalForm && errors.legalForm.length">
+                    <span>{{ errors.legalForm[0] }}</span>
+                </div>
+
+                <div class="container-error" *ngIf="onSubmit && !AssociationForm.value.legalForm">
+                    <span>Forma Juridica é obrigatória</span>
+                </div>
+            </div>
+
+
+            <div class="item">
+                <label>CNPJ *</label>
+                <input class="form-control" type="text" placeholder="Digite o CNPJ" formControlName="cnpj" mask="000.000.000-00" />
+
+                <div class="container-error" *ngIf="onSubmit && !AssociationForm.value.cnpj">
+                    <span>CNPJ é obrigatório</span>
+                </div>
+
+                <div class="container-error" *ngIf="errors.cnpj && errors.cnpj.length">
+                    <span>{{ errors.cnpj[0] }}</span>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="container-items">
+
+            <div class="item">
+                <label>Telefone</label>
+                <input class="form-control" type="text" placeholder="Digite o Telefone" formControlName="phone" mask="(00) 00000-0000" />
+            </div>
+
+            <div class="item">
+                <label>E-mail</label>
+                <input class="form-control" type="email" placeholder="Digite o E-mail" formControlName="email" />
+            </div>
+        </div>
+
+
+        <div class="container-address">
+            <div class="item">
+                <label>CEP *</label>
+
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Digite o CEP" formControlName="zipCode" mask="00000-000" required />
+
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-primary" (click)="searchAddress()">
+                        Pesquisar
+                    </button>
+                    </div>
+                </div>
+
+                <div class="container-error" *ngIf="onSubmit && !AssociationForm.value.zipCode">
+                    <span>CEP é obrigatório</span>
+                </div>
+            </div>
+
+            <div class="item">
+                <label>Endereço *</label>
+                <input class="form-control" type="text" placeholder="Digite o endereço" formControlName="street" required />
+
+                <div class="container-error" *ngIf="onSubmit && !AssociationForm.value.street">
+                    <span>Endereço é obrigatório</span>
+                </div>
+            </div>
+
+            <div class="item">
+                <label>Cidade *</label>
+                <input class="form-control" type="text" placeholder="Digite o nome da cidade" formControlName="city" required />
+
+                <div class="container-error" *ngIf="onSubmit && !AssociationForm.value.city">
+                    <span>Cidade é obrigatória</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-address">
+            <div class="item">
+                <label>Número *</label>
+                <input class="form-control" type="text" placeholder="Digite o número" formControlName="number" required />
+
+                <div class="container-error" *ngIf="onSubmit && !AssociationForm.value.number">
+                    <span>Número é obrigatório</span>
+                </div>
+            </div>
+
+            <div class="item">
+                <label>UF *</label>
+                <input class="form-control" type="text" placeholder="Digite a UF" formControlName="state" required />
+
+                <div class="container-error" *ngIf="onSubmit && !AssociationForm.value.state">
+                    <span>UF é obrigatório</span>
+                </div>
+            </div>
+
+            <div class="item">
+                <label>Complemento</label>
+                <input class="form-control" type="text" formControlName="complement" />
+            </div>
+        </div>
+
+
+        <div *ngIf="listErrors.length" class="container-errors">
+            <div *ngFor="let error of listErrors" class="alert alert-danger" role="alert">
+                * {{ error }}
+            </div>
+        </div>
+
+        <div class="container-buttons">
+            <div class="item">
+                <button class="btn btn-primary" [disabled]="loading" (click)="validateForms()">
+                {{ titleButton }}
+            </button>
+            </div>
+        </div>
+
+    </div>
+</div>

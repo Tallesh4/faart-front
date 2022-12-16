@@ -1,0 +1,33 @@
+<div *ngIf="type === 'input'" class="cardInput">
+    <label>{{label}}</label>
+    <input class="input-forms" value="{{value}}" *ngIf="disabled === 'disabled'" disabled type="text">
+    <input class="input-forms" value="{{value}}" *ngIf="disabled !== 'disabled'" type="text">
+</div>
+
+<div *ngIf="type === 'select'" class="cardInput">
+    <label>{{label}}</label>
+    <select *ngIf="disabled === 'disabled'" disabled class="input-forms">
+        <option value="{{value}}">{{value}}</option>
+    </select>
+    <select *ngIf="disabled !== 'disabled'" class="input-forms">
+        <option value="">-- --</option>
+        <option *ngFor="let item of select"  [value]="value">{{value}}</option>
+    </select>
+</div>
+
+<div *ngIf="type === 'selectWallet'" class="cardInput">
+    <label>{{label}}</label>
+    <select *ngIf="disabled === 'disabled'" disabled class="input-forms">
+        <option value="{{value}}">{{value}}</option>
+    </select>
+    <select *ngIf="disabled !== 'disabled'" class="input-forms">
+        <option value="">-- --</option>
+        <option *ngFor="let item of select" value="{{item.id}}">{{item.protheusCode}} | {{item.name}}</option>
+    </select>
+</div>
+
+<div *ngIf="type === 'textarea'" class="cardInput">
+    <label>{{label}}</label>
+    <textarea class="input-forms" value="{{value}}" *ngIf="disabled === 'disabled'" disabled type="text"></textarea>
+    <textarea class="input-forms" value="{{value}}" *ngIf="disabled !== 'disabled'" type="text"></textarea>
+</div>

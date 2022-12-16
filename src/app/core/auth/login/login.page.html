@@ -1,0 +1,48 @@
+<div class="login-screen">
+	<div class="container-logo">
+	</div>
+	<div class="container-box">
+	<div class="container-form">
+		<form (ngSubmit)="onSubmit()" [formGroup]="form">
+			<img src="../../../assets/img/initial_logo.png" id="logoinicial">
+			<div class="header">
+				<h3>Entrar</h3>
+				<p>Acesso para Administradores</p>
+			</div>	
+			<div class="login-box">
+				<label for="username">Usuário</label>
+				<input
+					type="username"
+					name="username"
+					id="username"
+					placeholder="Digite seu usuário"
+					formControlName="username"
+				/>
+				<div class="login-box">
+					<label for="password">Senha</label>
+					<input
+						type="password"
+						name="password"
+						id="password"
+						placeholder="Digite sua senha"
+						formControlName="password"
+					/>
+				</div>
+			</div>
+			
+			<div class="container-buttons">
+				<button type="submit" class="btns btns-black" [disabled]="submitting">Acessar o sistema</button>
+			</div>
+			<div class="loading">
+				<div class="spinner-border text-warning" role="status" *ngIf="submitting">
+					<span class="visually-hidden">Loading...</span>
+				</div>
+			</div>
+		</form>
+		<div class="container-buttons-reset">
+			<p>Esqueceu a senha?</p>
+			<a id="button-reset-password" (click)="resetPassword()" type="submit">Clique aqui</a>
+		</div>
+	</div>
+	</div>
+</div>

@@ -1,0 +1,17 @@
+<div class="wiz-modal" [ngClass]="{'noCenter': alignContentModal}" (click)="closeAllModal($event)">
+	<div class="content" #contentModal [style]="setWidth()">
+		<button
+			(click)="FuncCloseModal()"
+			class="close">
+				<img
+					src="../../../assets/icons/iconX.svg"
+					alt="Ícone de fechar"
+				/>
+		</button>
+
+		<div class="header" *ngIf="title !== ''">{{title}} </div>
+		<div class="container">
+			<ng-content></ng-content>
+		</div>
+	</div>
+</div>

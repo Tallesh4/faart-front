@@ -1,0 +1,20 @@
+button {
+    background: #1C3F9B;
+    color: var(--white);
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 4px;
+    border: none;
+    height: 38px;
+    padding: 10px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+button:disabled {
+    background-color: gray;
+}

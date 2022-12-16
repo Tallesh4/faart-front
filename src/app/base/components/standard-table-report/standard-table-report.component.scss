@@ -1,0 +1,111 @@
+.container-table{
+    margin-top: 25px;
+    display: flex;
+    font-family: Roboto;
+    font-style: normal;
+
+    .table-primary{
+        table {
+            thead{
+                tr{
+                    th{
+                        min-width: 210px;
+                    }
+                }
+            }
+
+            tbody{
+                tr{
+                    td{
+                        padding-top: 20px;
+                        padding-bottom: 25px;
+                    }
+                }
+            }
+        }
+    }
+
+    .table-secondary{
+        overflow: auto;
+
+        table{
+            thead{
+                tr{
+                    th{
+                        min-width: 210px;
+                    }
+                }
+            }
+
+            tbody{
+                tr{
+                    td{
+                        padding-top: 20px;
+                        padding-bottom: 25px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.finishTable {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+
+    h3 {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 27px;
+        color: #50555a;
+    }
+
+    .paginator {
+        ul {
+            display: flex;
+
+            li {
+                padding: 7px 7px 1px 7px;
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: 500;
+                font-size: 17px;
+                line-height: 26px;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                color: #9ba5ae;
+
+                .btnPrev {
+                    transform: rotate(180deg);
+                }
+            }
+
+            .liSelected {
+                border-bottom: 1px solid #0f6eb4;
+                color: #50555a;
+            }
+        }
+    }
+
+    button {
+        background: #1C3F9B;
+        color: var(--white);
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        border-radius: 4px;
+        border: none;
+        height: 38px;
+        padding: 10px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

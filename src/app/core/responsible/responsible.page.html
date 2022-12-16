@@ -1,0 +1,36 @@
+<div class="itemContainer">
+    <fast-navigation
+        [fastNavigationData]="fastNavigationData"
+    ></fast-navigation>
+    <div>
+        <h2>{{ screenTitle }}</h2>
+
+        <standard-toolbar
+            [showButtonAdd]="showCreateItemButton"
+            [showButtonDelete]="showDeleteItemButton"
+            (openModalNew)="openModalCreateUpdateItem($event, 'create')"
+            (changeAmount)="changeAmount($event)"
+            (searchValue)="searchItem($event)"
+            placeholder="Digite o nome de uma {{ screenTitle }}"
+        ></standard-toolbar>
+
+        <div *ngIf="!loadingTable">
+            <standard-table-tools
+                [headers]="headers"
+                [query]="paginateItems"
+                [reportName]="screenTitle"
+                [showUpdateButton]="showUpdateItemButton"
+                [showDeleteButton]="ShowDeleteItemButton"
+                (itemDelete)="openModalDeleteItem($event)"
+                (modalUpdateItem)="openModalCreateUpdateItem($event, 'update')"
+                (changePageData)="changePage($event)"
+                (sortItemsField)="sortItemsField($event)"
+                (exportExcel)="exportExcel($event)"
+            ></standard-table-tools>
+        </div>
+
+        <loading-circle
+            [loading]="loadingTable"
+        ></loading-circle>
+    </div>
+</div>

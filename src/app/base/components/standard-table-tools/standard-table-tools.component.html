@@ -1,0 +1,55 @@
+<div class="container-table">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col" *ngFor="let item of headers" (click)="sortItems(item.key)">
+                    {{ item.value }}
+                    <img *ngIf="item.key === query.sortBy" src="../../../assets/icons/arrow-table.svg" alt="ícone de seta para ordenar tabela" [class.sortIcon]="query.sort == 'asc' ? true : false" />
+                </th>
+            </tr>
+        </thead>
+
+        <tbody #customBody>
+            <ng-content></ng-content>
+        </tbody>
+        <tbody *ngIf="!customBody.children.length">
+            <tr *ngFor="let containerItems of listItemsTableContainer | paginate: {id: paginationId, itemsPerPage: query.perPage, currentPage: query.page, totalItems: query.total }">
+
+                <td *ngFor="let value of containerItems.data">
+                    <p>{{ value }}</p>
+                </td>
+
+                <div class="options">
+                    <td *ngIf="showUpdateButton" (click)="openModalUpdateItem(containerItems.id)">
+                        <button>
+                            <span class="material-icons md-48 whitecolor">create</span>
+                        </button>
+                    </td>
+
+                    <td *ngIf="showDeleteButton" (click)="deleteItem(containerItems.id)">
+                        <button style="background-color: var(--danger);">
+                            <span class="material-icons md-48 redcolor">delete</span>
+                        </button>
+                    </td>
+
+                    <td *ngIf="showViewButton" (click)="openModalViewItem(containerItems.id)">
+                        <button style="background-color: var(--danger);">
+                            <span class="material-icons md-48 redcolor">visibility</span>
+                        </button>
+                    </td>
+                </div>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <div class="finishTable">
+        <h3>Total: {{ query.total }}</h3>
+
+        <table-paginator [paginationId]="paginationId" (numberPage)="changePage($event)"></table-paginator>
+
+        <!-- <default-export-button
+            (export)="exportTableExcel()"
+        ></default-export-button> -->
+    </div>
+</div>
